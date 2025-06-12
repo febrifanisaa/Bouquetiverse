@@ -1,0 +1,2453 @@
+<!DOCTYPE html>  
+<html lang="id">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Bouquetiverse - Buket Spesial Untuk Momen Spesialmu</title>  
+    <style>  
+        /* Mengimpor font dari Google Fonts */  
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@600&display=swap');  
+
+        * {  
+            margin: 0;  
+            padding: 0;  
+            box-sizing: border-box;  
+        }  
+
+        body {  
+            font-family: 'Poppins', sans-serif;  
+            background-color: #fff8fa;  
+            color: #333;  
+            line-height: 1.6;  
+            display: flex;  
+            flex-direction: column;  
+            align-items: center; /* Memusatkan konten di tengah secara horizontal*/   
+        }  
+
+        .header {  
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);  
+            padding: 20px 80px;  
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  
+            position: relative;  
+            overflow: hidden;  
+            width: 100%;  /* Mengatur lebar header */  
+            text-align: center;  
+        }  
+
+        .header::before {  
+            content: "";  
+            position: absolute;  
+            top: 0;  
+            left: 0;  
+            width: 100%;  
+            height: 100%;  
+            background: url('/api/placeholder/200/200') no-repeat;  
+            background-size: 100px;  
+            opacity: 0.1;  
+        }  
+
+        .container {  
+            width: 90%;  
+            max-width: 1200px;  
+            margin: 0 auto;  
+            position: relative;  
+        }  
+
+        .nav {  
+            display: flex;  
+            justify-content: space-between;  
+            align-items: center;  
+            padding: 10px 0;  
+        }  
+
+        .logo {  
+            display: flex;  
+            align-items: center;  
+        }  
+
+        .logo-text {  
+            font-family: 'Dancing Script', cursive;  
+            font-size: 2.5rem;  
+            color: #e91e63;  
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);  
+            margin-left: 10px;  
+        }  
+
+        .logo img {  
+            width: 50px;                /* Set a fixed width */  
+            height: 50px;               /* Set a fixed height to maintain aspect ratio */  
+            border-radius: 50%;         /* Make the image round */  
+            object-fit: cover;          /* Cover to ensure the image fits within the circle */  
+            border: 2px solid #e91e63;  /* Optional: add a border for better appearance */  
+        }  
+
+        .nav-links {  
+            display: flex;  
+            gap: 20px;  
+        }  
+
+        .nav-links a {  
+            color: #333;  
+            text-decoration: none;  
+            font-weight: 600;  
+            padding: 5px 10px;  
+            border-radius: 20px;  
+            transition: all 0.3s ease;  
+        }  
+
+        .nav-links a:hover {  
+            background-color: #ffcdd2;  
+            color: #d81b60;  
+        }  
+
+        .hero {  
+            display: flex;  
+            flex-direction: column;  
+            align-items: center;  
+            text-align: center;  
+            padding: 60px 20px;  
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('/api/placeholder/800/400');  
+            background-size: cover;  
+            background-position: center;  
+            border-radius: 10px;  
+            margin: 20px 0;  
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);  
+        }  
+
+        .hero h1 {  
+            font-size: 3rem;  
+            margin-bottom: 20px;  
+            color: #e91e63;  
+            font-family: 'Dancing Script', cursive;  
+        }  
+
+        .hero p {  
+            font-size: 1.2rem;  
+            margin-bottom: 30px;  
+            max-width: 600px;  
+        }  
+
+        .btn {  
+            display: inline-block;  
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);  
+            color: white;  
+            padding: 12px 30px;  
+            border-radius: 50px;  
+            text-decoration: none;  
+            font-weight: bold;  
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);  
+            transition: all 0.3s ease;  
+            border: none;  
+            cursor: pointer;  
+        }  
+
+        .btn:hover {  
+            transform: translateY(-3px);  
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);  
+        }  
+
+        .featured {  
+            padding: 60px 0;  
+        }  
+
+        .section-title {  
+            text-align: center;  
+            font-size: 2.2rem;  
+            margin-bottom: 40px;  
+            color: #e91e63;  
+            font-family: 'Dancing Script', cursive;  
+        }  
+
+        .products {  
+            display: grid;  
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));  
+            gap: 30px;  
+        }  
+
+        .product-card {  
+            background: white;  
+            border-radius: 15px;  
+            overflow: hidden;  
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);  
+            transition: transform 0.3s ease;  
+        }  
+
+        .product-card:hover {  
+            transform: translateY(-10px);  
+        }  
+
+        .product-img {  
+            height: 200px;  
+            background-size: cover;  
+            background-position: center;  
+        }  
+
+        .product-info {  
+            padding: 20px;  
+        }  
+
+        .product-info h3 {  
+            font-size: 1.2rem;  
+            margin-bottom: 10px;  
+            color: #333;  
+        }  
+
+        .product-info p {  
+            color: #666;  
+            margin-bottom: 15px;  
+        }  
+
+        .price {  
+            font-weight: bold;  
+            color: #e91e63;  
+            font-size: 1.2rem;  
+            margin-bottom: 15px;  
+            display: block;  
+        }  
+
+        .about {  
+            padding: 60px 0;  
+            background: #fff;  
+            border-radius: 10px;  
+            margin: 20px 0;  
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);  
+        }  
+
+        .about-content {  
+            display: flex;  
+            align-items: center;  
+            gap: 40px;  
+        }  
+
+        .about-img {  
+            flex: 1;  
+            border-radius: 10px;  
+            overflow: hidden;  
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  
+        }  
+
+        .about-text {  
+            flex: 1;  
+        }  
+
+        .about-text h2 {  
+            font-size: 2rem;  
+            margin-bottom: 20px;  
+            color: #e91e63;  
+        }  
+
+        .about-text p {  
+            margin-bottom: 20px;  
+            color: #555;  
+        }  
+
+        .testimonials {  
+            padding: 60px 0;  
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff8fa 100%);  
+            border-radius: 10px;  
+            margin: 20px 0;  
+        }  
+
+        .testimonial-cards {  
+            display: grid;  
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  
+            gap: 30px;  
+        }  
+
+        .testimonial-card {  
+            background: white;  
+            padding: 30px;  
+            border-radius: 10px;  
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);  
+            position: relative;  
+        }  
+
+        .testimonial-card::before {  
+            content: "\201C";  
+            position: absolute;  
+            top: 10px;  
+            left: 20px;  
+            font-size: 5rem;  
+            color: #ffcdd2;  
+            font-family: serif;  
+            line-height: 1;  
+            opacity: 0.3;  
+        }  
+
+        .testimonial-text {  
+            margin-bottom: 20px;  
+            position: relative;  
+            z-index: 1;  
+        }  
+
+        .testimonial-author {  
+            display: flex;  
+            align-items: center;  
+        }  
+
+        .author-avatar {  
+            width: 50px;  
+            height: 50px;  
+            border-radius: 50%;  
+            margin-right: 15px;  
+            background-size: cover;  
+            background-position: center;  
+        }  
+
+        .author-info h4 {  
+            margin: 0;  
+            color: #333;  
+        }  
+
+        .author-info small {  
+            color: #888;  
+        }  
+
+        .contact {  
+            padding: 60px 0;  
+        }  
+
+        .contact-form {  
+            max-width: 600px;  
+            margin: 0 auto;  
+            background: white;  
+            padding: 30px;  
+            border-radius: 10px;  
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);  
+        }  
+
+        .form-group {  
+            margin-bottom: 20px;  
+        }  
+
+        .form-group label {  
+            display: block;  
+            margin-bottom: 5px;  
+            color: #555;  
+        }  
+
+        .form-group input,  
+        .form-group textarea {  
+            width: 100%;  
+            padding: 12px;  
+            border: 1px solid #ddd;  
+            border-radius: 5px;  
+            font-family: 'Poppins', sans-serif;  
+        }  
+
+        .form-group textarea {  
+            height: 150px;  
+            resize: vertical;  
+        }  
+
+        .footer {  
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);  
+            color: #333;  
+            padding: 40px 0;  
+            text-align: center;  
+            margin-top: 60px;  
+            position: relative;  
+            overflow: hidden;  
+            width: 100%;  /* Mengatur lebar header */  
+        }  
+
+        .footer-content {  
+            display: flex;  
+            justify-content: space-between;  
+            flex-wrap: wrap;  
+            gap: 30px;  
+            margin-bottom: 30px;  
+        }  
+
+        .footer-section {  
+            flex: 1;  
+            min-width: 200px;  
+        }  
+
+        .footer-section h3 {  
+            font-size: 1.2rem;  
+            margin-bottom: 20px;  
+            color: #333;  
+        }  
+
+        .footer-section ul {  
+            list-style: none;  
+        }  
+
+        .footer-section ul li {  
+            margin-bottom: 10px;  
+        }  
+
+        .footer-section ul li a {  
+            color: #333;  
+            text-decoration: none;  
+            transition: color 0.3s ease;  
+        }  
+
+        .footer-section ul li a:hover {  
+            color: #e91e63;  
+        }  
+
+        .social-icons {  
+            display: flex;  
+            gap: 15px;  
+            justify-content: center;  
+            margin-top: 20px;  
+        }  
+
+        .social-icons a {  
+            display: flex;  
+            align-items: center;  
+            justify-content: center;  
+            width: 40px;  
+            height: 40px;  
+            background: white;  
+            border-radius: 50%;  
+            color: #e91e63;  
+            text-decoration: none;  
+            transition: all 0.3s ease;  
+        }  
+
+        .social-icons a:hover {  
+            transform: translateY(-3px);  
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);  
+        }  
+
+        .copyright {  
+            margin-top: 20px;  
+            padding-top: 20px;  
+            border-top: 1px solid rgba(0, 0, 0, 0.1);  
+        }  
+
+        .floating-flower {  
+            position: absolute;  
+            width: 30px;  
+            height: 30px;  
+            background: url('/api/placeholder/30/30') no-repeat;  
+            background-size: contain;  
+            animation: float 15s infinite linear;  
+            opacity: 0.6;  
+        }  
+
+        @keyframes float {  
+            0% {  
+                transform: translate(0, 0) rotate(0deg);  
+            }  
+            25% {  
+                transform: translate(100px, 50px) rotate(90deg);  
+            }  
+            50% {  
+                transform: translate(200px, 0) rotate(180deg);  
+            }  
+            75% {  
+                transform: translate(100px, -50px) rotate(270deg);  
+            }  
+            100% {  
+                transform: translate(0, 0) rotate(360deg);  
+            }  
+        }  
+
+        @media (max-width: 768px) {  
+            .nav {  
+                flex-direction: column;  
+                gap: 15px;  
+            }  
+
+            .hero h1 {  
+                font-size: 2.5rem;  
+            }  
+
+            .about-content {  
+                flex-direction: column;  
+            }  
+
+            .footer-content {  
+                flex-direction: column;  
+                text-align: center;  
+            }  
+
+            .social-icons {  
+                justify-content: center;  
+            }  
+        }  
+
+        /* CSS untuk Modal */  
+        .modal {  
+            display: none;   
+            position: fixed;   
+            z-index: 1000;   
+            left: 0;  
+            top: 0;  
+            width: 100%;   
+            height: 100%;   
+            overflow: auto;   
+            background-color: rgb(0,0,0);   
+            background-color: rgba(0,0,0,0.4);   
+        }  
+
+        .modal-content {  
+            background-color: #fefefe;  
+            margin: 15% auto;   
+            padding: 20px;  
+            border: 1px solid #888;  
+            width: 80%;   
+            max-width: 500px;  
+        }  
+
+        .close {  
+            color: #aaa;  
+            float: right;  
+            font-size: 28px;  
+            font-weight: bold;  
+        }  
+
+        .close:hover,  
+        .close:focus {  
+            color: black;  
+            text-decoration: none;  
+            cursor: pointer;  
+        }  
+
+        /* Admin Link Small Icon */
+        .admin-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: #e91e63;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            font-size: 16px;
+        }
+
+        .admin-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Admin Panel Styles */
+        #adminPanel {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .admin-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .admin-title {
+            font-size: 2.2rem;
+            color: #e91e63;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .admin-logout {
+            background: none;
+            border: none;
+            color: #e91e63;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .admin-logout:hover {
+            background-color: #ffcdd2;
+        }
+
+        .admin-close {
+            background: none;
+            border: none;
+            color: #e91e63;
+            cursor: pointer;
+            font-size: 2rem;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+        }
+
+        .admin-close:hover {
+            transform: scale(1.1);
+        }
+
+        .admin-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .admin-section h2 {
+            color: #e91e63;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .data-item {
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #e91e63;
+        }
+
+        .data-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .data-item p {
+            margin-bottom: 5px;
+        }
+
+        .data-item strong {
+            color: #555;
+        }
+
+        .data-item .date {
+            color: #888;
+            font-size: 0.9rem;
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            flex-grow: 1;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            background: #e91e63;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+        }
+        
+        /* Loading spinner */
+        .loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Success/error notification */
+        .notification {
+            padding: 10px 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Connection status indicator */
+        .connection-status {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 1000;
+            display: none;
+        }
+
+        .connection-online {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .connection-offline {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Perbaikan status koneksi */
+.connection-status {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+.connection-online {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.connection-offline {
+    background-color: #f44336;
+    color: white;
+}
+
+.connection-pending {
+    background-color: #ff9800;
+    color: white;
+}
+
+/* Perbaikan notifikasi */
+.notification {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    text-align: center;
+    display: block;
+}
+
+.notification.success {
+    background-color: #dff2bf;
+    color: #4F8A10;
+}
+
+.notification.error {
+    background-color: #ffbaba;
+    color: #D8000C;
+}
+
+/* Loader saat submit form */
+.loader {
+    border: 3px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 3px solid #3498db;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Admin Panel Styles */
+.admin-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #ff6b6b;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: transform 0.3s ease;
+}
+
+.admin-icon:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#adminPanel {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.login-container {
+    background-color: white;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.admin-container {
+    background-color: #f5f5f5;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.admin-title {
+    color: #333;
+    margin: 0 0 20px 0;
+}
+
+.admin-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+.admin-logout {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.tab:hover {
+    background-color: #f9f9f9;
+}
+
+.tab.active {
+    border-bottom: 3px solid #4CAF50;
+    color: #4CAF50;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.admin-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.admin-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.admin-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status-proses {
+    background-color: #ffecb3;
+    color: #ff9800;
+}
+
+.status-selesai {
+    background-color: #c8e6c9;
+    color: #4caf50;
+}
+
+.status-dikirim {
+    background-color: #bbdefb;
+    color: #2196f3;
+}
+
+.status-read {
+    background-color: #e0e0e0;
+    color: #757575;
+}
+
+.status-unread {
+    background-color: #ffcdd2;
+    color: #f44336;
+}
+
+.admin-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.view-btn {
+    background-color: #2196f3;
+    color: white;
+}
+
+.edit-btn {
+    background-color: #ff9800;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+    </style>  
+</head>  
+<body>  
+    <!-- Connection Status Indicator -->
+    <div id="connectionStatus" class="connection-status">
+        Memuat koneksi...
+    </div>
+
+    <!-- Elemen-elemen bunga yang mengambang sebagai dekorasi -->  
+    <div class="floating-flower" style="top: 10%; left: 5%; animation-delay: 0s;"></div>  
+    <div class="floating-flower" style="top: 15%; right: 10%; animation-delay: 2s;"></div>  
+    <div class="floating-flower" style="bottom: 20%; left: 15%; animation-delay: 4s;"></div>  
+    <div class="floating-flower" style="bottom: 10%; right: 5%; animation-delay: 6s;"></div>  
+    
+    <!-- Header Section -->  
+    <header class="header">  
+        <div class="container">  
+            <nav class="nav">  
+                <div class="logo">  
+                    <img src="{{ url_for('static', filename='images/WhatsApp Image 2025-05-15 at 19.54.58_f21a99e9.jpg') }}" alt="Bouquetiverse Logo" width="50" height="50">  
+                    <span class="logo-text">Bouquetiverse</span>  
+                </div>  
+                <div class="nav-links">  
+                    <a href="#home">Beranda</a>  
+                    <a href="#products">Koleksi</a>  
+                    <a href="#about">Tentang Kami</a>  
+                    <a href="#testimonials">Testimoni</a>  
+                    <a href="#contact">Kontak</a>  
+                </div>  
+            </nav>  
+        </div>  
+    </header>  
+    
+    <!-- Hero Section -->  
+    <section id="home" class="hero container">  
+        <h1>Ungkapkan Perasaanmu dengan Buket Cantik</h1>  
+        <p>Buket spesial untuk momen spesialmu. Dibuat dengan cinta dan penuh kreativitas untuk menemani setiap momen bahagiamu.</p>  
+        <a href="#products" class="btn">Lihat Koleksi ✿</a>  
+    </section>  
+    
+    <!-- Featured Products Section -->  
+    <section id="products" class="featured container">  
+        <h2 class="section-title">Koleksi Buket Terbaru</h2>  
+        <div class="products">  
+            <!-- Product Card 1 -->  
+            <div class="product-card">  
+                <div class="product-img" style="background-image: url('https://i.pinimg.com/736x/62/06/cb/6206cbffdd2bee6462a590ab8a14b864.jpg')"></div>  
+                <div class="product-info">  
+                    <h3>Bucket Snack</h3>  
+                    <p>Buket Snack favorit pasanganmu</p>  
+                    <span class="price">Rp 50.000</span>  
+                    <button class="btn" data-product="Bucket Snack">Pesan Sekarang</button>  
+                </div>  
+            </div>  
+            
+            <!-- Product Card 2 -->  
+            <div class="product-card">  
+                <div class="product-img" style="background-image: url('https://i.pinimg.com/736x/98/e3/df/98e3dfc522bac26178508b3671237114.jpg')"></div>  
+                <div class="product-info">  
+                    <h3>Buket Bunga</h3>  
+                    <p>Buket Bunga favorit pasanganmu</p>  
+                    <span class="price">Rp 80.000</span>  
+                    <button class="btn" data-product="Buket Bunga">Pesan Sekarang</button>  
+                </div>  
+            </div>  
+            
+            <!-- Product Card 3 -->  
+            <div class="product-card">  
+                <div class="product-img" style="background-image: url('https://i.pinimg.com/736x/7d/5a/a8/7d5aa88d0339bd321ecb81c19070d819.jpg')"></div>  
+                <div class="product-info">  
+                    <h3>Buket Boneka</h3>  
+                    <p>Buket boneka dengan boneka favorit pasanganmu</p>  
+                    <span class="price">Rp 100.000</span>  
+                    <button class="btn" data-product="Buket Boneka">Pesan Sekarang</button>  
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+    
+    <!-- About Section -->  
+    <section id="about" class="about container">  
+        <h2 class="section-title">Tentang Bouquetiverse</h2>  
+        <div class="about-content">  
+            <div class="about-img">  
+                <img src="https://i.pinimg.com/736x/8d/63/31/8d63310a0c747256d08dc45bd1ca54f6.jpg" alt="Bouquetiverse Workshop" width="100%">  
+            </div>  
+            <div class="about-text">  
+                <h2>Cerita Kami</h2>  
+                <p>Bouquetiverse hadir dari kecintaan kami terhadap keinginan untuk membuat setiap momen spesial menjadi lebih bermakna. Berdiri sejak 2025, kami ingin melayani ribuan pelanggan dengan buket yang dibuat khusus sesuai keinginan.</p>  
+                <p>Setiap buket kami rangkai dengan penuh cinta dan dedikasi, menggunakan bahan-bahan pilihan dan material berkualitas untuk menghasilkan karya yang tidak hanya cantik, tapi juga berkesan.</p>  
+                <a href="#contact" class="btn">Hubungi Kami</a>  
+            </div>  
+        </div>  
+    </section>  
+    
+    <!-- Testimonials Section -->  
+    <section id="testimonials" class="testimonials container">  
+        <h2 class="section-title">Apa Kata Mereka?</h2>  
+        <div class="testimonial-cards">  
+            <!-- Testimonial 1 -->  
+            <div class="testimonial-card">  
+                <p class="testimonial-text">"Buket dari Bouquetiverse benar-benar cantik dan aesthetic! Pacar saya sangat suka dengan surprisenya. Pasti akan pesan lagi untuk anniversary nanti."</p>  
+                <div class="testimonial-author">  
+                    <div class="author-avatar" style="background-image: url('/api/placeholder/50/50')"></div>  
+                    <div class="author-info">  
+                        <h4>Budi Santoso</h4>  
+                        <small>Bandung</small>  
+                    </div>  
+                </div>  
+            </div>  
+            
+            <!-- Testimonial 2 -->  
+            <div class="testimonial-card">  
+                <p class="testimonial-text">"Pengiriman tepat waktu dan buket bunga tulipnya persis seperti di foto. Admin juga sangat ramah dan membantu. Recommended banget!"</p>  
+                <div class="testimonial-author">  
+                    <div class="author-avatar" style="background-image: url('/api/placeholder/50/50')"></div>  
+                    <div class="author-info">  
+                        <h4>Budi Santoso</h4>  
+                        <small>Bandung</small>  
+                    </div>  
+                </div>  
+            </div>  
+            
+            <!-- Testimonial 3 -->  
+            <div class="testimonial-card">  
+                <p class="testimonial-text">"Buket untuk wisuda adik saya jadi perhatian semua orang. Desainnya unik dan berbeda dari yang lain. Terima kasih Bouquetiverse!"</p>  
+                <div class="testimonial-author">  
+                    <div class="author-avatar" style="background-image: url('/api/placeholder/50/50')"></div>  
+                    <div class="author-info">  
+                        <h4>Siti Rahayu</h4>  
+                        <small>Surabaya</small>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+    
+    <!-- Contact Section -->  
+    <section id="contact" class="contact container">  
+        <h2 class="section-title">Hubungi Kami</h2>   
+    </section>  
+    
+    <!-- Modal Pemesanan -->  
+    <div id="orderModal" class="modal">  
+        <div class="modal-content">  
+            <span class="close">&times;</span>  
+            <h2>Proses Pemesanan</h2>  
+            <form class="order-form">  
+                <div class="form-group">  
+                    <label for="product">Produk Dipilih</label>  
+                    <input type="text" id="product" placeholder="Isi Nama Produk" readonly required>  
+                </div>  
+                <div class="form-group">  
+                    <label for="name">Nama Lengkap</label>  
+                    <input type="text" id="orderName" placeholder="Nama" required>  
+                </div>  
+                <div class="form-group">  
+                    <label for="email">Email</label>  
+                    <input type="email" id="orderEmail" placeholder="aesthetic@gmail.com" required>  
+                </div>  
+                <div class="form-group">  
+                    <label for="phone">No. Handphone</label>  
+                    <input type="tel" id="orderPhone" placeholder="+62-822-6011-6061" required>  
+                </div>  
+                <div class="form-group">  
+                    <label for="address">Alamat Pengiriman</label>  
+                    <textarea id="orderAddress" placeholder="Tulis alamat pengiriman di sini..." required></textarea>  
+                </div>  
+                <button type="submit" class="btn" id="submitOrderBtn">Kirim Pesanan <span id="orderLoader" class="loader" style="display: none;"></span></button>
+                <div id="orderNotification" class="notification"></div>
+            </form>  
+        </div>  
+    </div>  
+
+    <!-- Admin Icon -->
+    <a href="#" id="adminIconBtn" class="admin-icon">A</a>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel">
+        <!-- Login Form -->
+        <div class="login-container" id="loginForm">
+            <h2 class="admin-title">Admin Login</h2>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Password">
+            </div>
+            <button class="btn" id="loginBtn">Login</button>
+        </div>
+
+        <!-- Admin Content -->
+        <div class="admin-container" id="adminContent" style="display:none;">
+            <button class="admin-close" id="adminCloseBtn">&times;</button>
+            <div class="admin-header">
+                <h1 class="admin-title">Admin Panel - Bouquetiverse</h1>
+                <button class="admin-logout" id="logoutBtn">Logout</button>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" data-tab="ordersTab">Pesanan</button>
+            </div>
+
+            <!-- Orders Tab -->
+            <div class="tab-content active" id="ordersTab">
+                <div class="admin-section">
+                    <h2>Daftar Pesanan</h2>
+                    <div id="ordersList">
+                        <div style="text-align: center;">
+                            <p>Memuat data pesanan...</p>
+                            <div class="loader" style="display: inline-block;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Messages Tab -->
+            <div class="tab-content" id="messagesTab">
+                <div class="admin-section">
+                    <h2>Daftar Pesan</h2>
+                    <div id="messagesList">
+                        <div style="text-align: center;">
+                            <p>Memuat data pesan...</p>
+                            <div class="loader" style="display: inline-block;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer Section -->  
+    <footer class="footer">  
+        <div class="container">  
+            <div class="footer-content">  
+                <!-- Footer Section 1 -->  
+                <div class="footer-section">  
+                    <h3>Bouquetiverse</h3>  
+                    <p>Membuat setiap momenmu menjadi lebih spesial dengan buket cantik dan penuh makna.</p>  
+                    <div class="social-icons">  
+                        <a href="">FB</a>  
+                        <a href="#">IG</a>  
+                        <a href="#">WA</a>  
+                        <a href="#">TT</a>  
+                    </div>  
+                </div>  
+                
+                <!-- Footer Section 2 -->  
+                <div class="footer-section">  
+                    <h3>Halaman</h3>  
+                    <ul>  
+                        <li><a href="#home">Beranda</a></li>  
+                        <li><a href="#products">Koleksi</a></li>  
+                        <li><a href="#about">Tentang Kami</a></li>  
+                        <li><a href="#testimonials">Testimoni</a></li>  
+                        <li><a href="#contact">Kontak</a></li>  
+                    </ul>  
+                </div>  
+                
+                <!-- Footer Section 3 -->  
+                <div class="footer-section">  
+                    <h3>Kontak</h3>  
+                    <ul>  
+                        <li>Jl. Medan - Banda Aceh, Mesjid Punteut</li>  
+                        <li>Kota Lhokseumawe, Aceh, Indonesia </li>  
+                        <li>Telp: +62 822 6011 6061</li>  
+                        <li>Email: Bouquetiverse@gmail.com</li>  
+                    </ul>  
+                </div>  
+            </div>  
+            
+            <!-- Copyright -->  
+            <div class="copyright">  
+                <p>&copy; 2025 Bouquetiverse. Semua Hak Dilindungi.</p>  
+            </div>  
+        </div>  
+    </footer>  
+    
+    <!-- JavaScript -->  
+    <script>
+        // Fungsi untuk mengirim pesanan
+const orderForm = document.querySelector('.order-form');
+const submitOrderBtn = document.getElementById("submitOrderBtn");
+const orderLoader = document.getElementById("orderLoader");
+const orderNotification = document.getElementById("orderNotification");
+
+if (orderForm) {
+    orderForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Mencegah form submit secara default
+        
+        // Mengambil data form
+        const productName = document.getElementById("product").value;
+        const name = document.getElementById("orderName").value;
+        const email = document.getElementById("orderEmail").value;
+        const phone = document.getElementById("orderPhone").value;
+        const address = document.getElementById("orderAddress").value;
+
+        // Validasi sederhana
+        if (!productName || !name || !email || !phone || !address) {
+            orderNotification.textContent = "Semua field harus diisi!";
+            orderNotification.className = "notification error";
+            return;
+        }
+        
+        // Tampilkan loader
+        if (orderLoader) orderLoader.style.display = "inline-block";
+        if (submitOrderBtn) submitOrderBtn.disabled = true;
+        
+        // Data yang akan dikirim
+        const orderData = {
+            product: productName,
+            name: name,
+            email: email,
+            phone: phone,
+            address: address
+        };
+        
+        // Kirim data ke server menggunakan POST
+        fetch('/api/orders', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(orderData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Sembunyikan loader
+            if (orderLoader) orderLoader.style.display = "none";
+            if (submitOrderBtn) submitOrderBtn.disabled = false;
+            
+            // Tampilkan notifikasi sukses
+            orderNotification.textContent = "Pesanan berhasil dikirim!";
+            orderNotification.className = "notification success";
+            
+            // Reset form setelah berhasil
+            orderForm.reset();
+            
+            // Tutup modal setelah 2 detik
+            setTimeout(() => {
+                modal.style.display = "none";
+                orderNotification.textContent = "";
+            }, 2000);
+        })
+        .catch(error => {
+            // Sembunyikan loader
+            if (orderLoader) orderLoader.style.display = "none";
+            if (submitOrderBtn) submitOrderBtn.disabled = false;
+            
+            // Tampilkan notifikasi error
+            orderNotification.textContent = "Gagal mengirim pesanan. Coba lagi!";
+            orderNotification.className = "notification error";
+        });
+    });
+}
+
+    document.addEventListener('DOMContentLoaded', function() {  
+    // Tambahkan listener untuk status koneksi internet
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+    
+    // Connection status indicator
+    const connectionStatusEl = document.getElementById('connectionStatus');
+    
+    // Check database connection
+    checkDatabaseConnection();
+    
+    // Function to check database connection
+    function checkDatabaseConnection() {
+        // Simulasi pengecekan database jika endpoint API tidak tersedia
+        try {
+            fetch('/api/connection-check')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'connected') {
+                        console.log("Connected to database");
+                        connectionStatusEl.textContent = "Terhubung ke server";
+                        connectionStatusEl.className = "connection-status connection-online";
+                        connectionStatusEl.style.display = "block";
+                        
+                        // Hide after 3 seconds
+                        setTimeout(() => {
+                            connectionStatusEl.style.display = "none";
+                        }, 3000);
+                    } else {
+                        console.log("Not connected to database");
+                        connectionStatusEl.textContent = "Tidak terhubung ke server";
+                        connectionStatusEl.className = "connection-status connection-offline";
+                        connectionStatusEl.style.display = "block";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error checking connection:", error);
+                    connectionStatusEl.textContent = "Tidak terhubung ke server";
+                    connectionStatusEl.className = "connection-status connection-offline";
+                    connectionStatusEl.style.display = "block";
+                });
+        } catch (error) {
+            console.error("Error checking connection:", error);
+            connectionStatusEl.textContent = "Mencoba terhubung ke server...";
+            connectionStatusEl.className = "connection-status connection-pending";
+            connectionStatusEl.style.display = "block";
+        }
+    }
+
+    // Update online/offline status
+    function updateOnlineStatus() {
+        const isOnline = navigator.onLine;
+        console.log("Internet connection:", isOnline ? "Online" : "Offline");
+        
+        if (!isOnline) {
+            connectionStatusEl.textContent = "Tidak ada koneksi internet";
+            connectionStatusEl.className = "connection-status connection-offline";
+            connectionStatusEl.style.display = "block";
+            
+            // Disable buttons if offline
+            document.querySelectorAll('.btn').forEach(btn => {
+                if (btn.id === "sendMessageBtn" || btn.id === "submitOrderBtn") {
+                    btn.disabled = true;
+                }
+            });
+        } else {
+            // Check database connection when back online
+            checkDatabaseConnection();
+            
+            // Re-enable buttons if online
+            document.querySelectorAll('.btn').forEach(btn => {
+                if (btn.id === "sendMessageBtn" || btn.id === "submitOrderBtn") {
+                    btn.disabled = false;
+                }
+            });
+        }
+    }
+    
+    // Check status immediately
+    updateOnlineStatus();
+    
+    // Smooth scrolling  
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {  
+        anchor.addEventListener('click', function(e) {  
+            if (this.getAttribute('href') === '#') return;
+            
+            e.preventDefault();  
+            
+            const targetId = this.getAttribute('href');  
+            const targetElement = document.querySelector(targetId);  
+            
+            if (targetElement) {  
+                window.scrollTo({  
+                    top: targetElement.offsetTop - 100,  
+                    behavior: 'smooth'  
+                });  
+            }  
+        });  
+    });  
+    
+    // Membuat elemen bunga tambahan  
+    function createFlowers() {  
+        for (let i = 0; i < 5; i++) {  
+            const flower = document.createElement('div');  
+            flower.className = 'floating-flower';  
+            flower.style.top = Math.random() * 100 + '%';  
+            flower.style.left = Math.random() * 100 + '%';  
+            flower.style.animationDelay = (Math.random() * 10) + 's';  
+            document.body.appendChild(flower);  
+        }  
+    }  
+
+    createFlowers();  
+
+    // Modal Pemesanan
+    const modal = document.getElementById("orderModal");
+    const productInput = document.getElementById("product");
+    
+    // PERBAIKAN: Mendapatkan semua tombol "Pesan Sekarang" dengan querySelectorAll
+    const orderButtons = document.querySelectorAll('.btn[data-product]');
+    
+    // Menambahkan event listener untuk semua tombol pesan
+    orderButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const productName = this.getAttribute('data-product');
+            if (productInput) {
+                productInput.value = productName; // Set nilai produk di modal
+            }
+            if (modal) {
+                modal.style.display = "block"; // Tampilkan modal
+            }
+        });
+    });
+    
+    // Event listener untuk tombol close modal
+    const closeModalBtn = document.querySelector(".modal .close");
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', function() {
+            modal.style.display = "none";
+        });
+    }
+
+    // Event listener untuk klik di luar modal
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+    
+    // PERBAIKAN: Fungsi untuk mengirim pesanan
+    const orderForm = document.querySelector('.order-form');
+    const submitOrderBtn = document.getElementById("submitOrderBtn");
+    const orderLoader = document.getElementById("orderLoader");
+    const orderNotification = document.getElementById("orderNotification");
+    
+    if (orderForm) {
+        orderForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Mencegah form submit secara default
+            
+            // Mengambil data form
+            const productName = document.getElementById("product").value;
+            const name = document.getElementById("orderName").value;
+            const email = document.getElementById("orderEmail").value;
+            const phone = document.getElementById("orderPhone").value;
+            const address = document.getElementById("orderAddress").value;
+            
+            // Validasi sederhana
+            if (!productName || !name || !email || !phone || !address) {
+                orderNotification.textContent = "Semua field harus diisi!";
+                orderNotification.className = "notification error";
+                return;
+            }
+            
+            // Tampilkan loader
+            if (orderLoader) orderLoader.style.display = "inline-block";
+            if (submitOrderBtn) submitOrderBtn.disabled = true;
+            
+            // Data yang akan dikirim
+            const orderData = {
+                product: productName,
+                name: name,
+                email: email,
+                phone: phone,
+                address: address
+            };
+            
+            // Simulasi pengiriman ke server
+            setTimeout(() => {
+                console.log("Order data:", orderData);
+                
+                // Sembunyikan loader
+                if (orderLoader) orderLoader.style.display = "none";
+                if (submitOrderBtn) submitOrderBtn.disabled = false;
+                
+                // Tampilkan notifikasi sukses
+                orderNotification.textContent = "Pesanan berhasil dikirim!";
+                orderNotification.className = "notification success";
+                
+                // Reset form setelah berhasil
+                orderForm.reset();
+                
+                // Tutup modal setelah 2 detik
+                setTimeout(() => {
+                    modal.style.display = "none";
+                    orderNotification.textContent = "";
+                }, 2000);
+            }, 1500);
+        });
+    }
+    
+    // PERBAIKAN: Contact form submission
+    const contactForm = document.querySelector('.contact-form');
+    const sendMessageBtn = document.getElementById("sendMessageBtn");
+    const messageLoader = document.getElementById("messageLoader");
+    const messageNotification = document.getElementById("messageNotification");
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Mengambil data form
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const message = document.getElementById("message").value;
+            
+            // Validasi sederhana
+            if (!name || !email || !phone || !message) {
+                messageNotification.textContent = "Semua field harus diisi!";
+                messageNotification.className = "notification error";
+                return;
+            }
+            
+            // Tampilkan loader
+            if (messageLoader) messageLoader.style.display = "inline-block";
+            if (sendMessageBtn) sendMessageBtn.disabled = true;
+            
+            // Data yang akan dikirim
+            const contactData = {
+                name: name,
+                email: email,
+                phone: phone,
+                message: message
+            };
+            
+            // Simulasi pengiriman ke server
+            setTimeout(() => {
+                console.log("Contact data:", contactData);
+                
+                // Sembunyikan loader
+                if (messageLoader) messageLoader.style.display = "none";
+                if (sendMessageBtn) sendMessageBtn.disabled = false;
+                
+                // Tampilkan notifikasi sukses
+                messageNotification.textContent = "Pesan berhasil dikirim!";
+                messageNotification.className = "notification success";
+                
+                // Reset form setelah berhasil
+                contactForm.reset();
+                
+                // Hilangkan notifikasi setelah 3 detik
+                setTimeout(() => {
+                    messageNotification.textContent = "";
+                }, 3000);
+            }, 1500);
+        });
+    }
+    
+    // PERBAIKAN: Admin Panel Functionality
+    const adminIconBtn = document.getElementById('adminIconBtn');
+    const adminPanel = document.getElementById('adminPanel');
+    const loginForm = document.getElementById('loginForm');
+    const adminContent = document.getElementById('adminContent');
+    const adminCloseBtn = document.getElementById('adminCloseBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const loginBtn = document.getElementById('loginBtn');
+    
+    // Admin icon click handler
+    if (adminIconBtn && adminPanel) {
+        adminIconBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            adminPanel.style.display = 'block';
+            loginForm.style.display = 'block';
+            adminContent.style.display = 'none';
+        });
+    }
+    
+    // Admin close button
+    if (adminCloseBtn && adminPanel) {
+        adminCloseBtn.addEventListener('click', function() {
+            adminPanel.style.display = 'none';
+        });
+    }
+    
+    // Login form submission
+    if (loginBtn) {
+        loginBtn.addEventListener('click', function() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === 'admin' && password === 'admin123') {
+                loginForm.style.display = 'none';
+                adminContent.style.display = 'block';
+                loadAdminData();
+            } else {
+                alert('Username atau password salah!');
+            }
+        });
+    }
+    
+    // Logout button
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function() {
+            adminContent.style.display = 'none';
+            loginForm.style.display = 'block';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        });
+    }
+    
+    // Admin tab switching
+    const tabs = document.querySelectorAll('.tab');
+    if (tabs.length > 0) {
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Hide all tab content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show corresponding tab content
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    }
+    
+    // Function to load admin data
+    // Function to load admin data
+function loadAdminData() {
+    // Load orders data
+    const ordersList = document.getElementById('ordersList');
+    if (ordersList) {
+        fetch('/api/orders')  // Fetch orders data from the server
+            .then(response => response.json())
+            .then(data => {
+                console.log("Orders data:", data);  // Log the response to check its structure
+                if (data.status === 'success') {
+                    let ordersHTML = `
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tanggal</th>
+                                    <th>Pelanggan</th>
+                                    <th>Produk</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+                    
+                    data.data.forEach(order => {
+                        // Check if status exists, if not, set it to 'Unknown'
+                        const status = order.status ? order.status.toLowerCase() : 'pending';
+                        ordersHTML += `
+                            <tr>
+                                <td>${order.id}</td>
+                                <td>${order.date}</td>
+                                <td>${order.name}</td>
+                                <td>${order.product}</td>
+                                <td><span class="status-badge status-${status}">${order.status || 'pending'}</span></td>
+                                <td>
+                                <button onclick="deleteOrder(${order.id})" class="btn btn-danger">Hapus Order ${order.id}</button>
+                                <button class="admin-btn edit-btn" data-id="${order.id}">Edit</button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                    
+                    ordersHTML += `
+                        </tbody>
+                    </table>
+                    `;
+                    
+                    ordersList.innerHTML = ordersHTML;  // Render the orders table
+                } else {
+                    ordersList.innerHTML = `<p>${data.message}</p>`;
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching orders:", error);
+                ordersList.innerHTML = `<p>Error loading orders data.</p>`;
+            });
+    }
+
+    // Load messages data
+    const messagesList = document.getElementById('messagesList');
+    if (messagesList) {
+        fetch('/api/messages')  // Fetch messages data from the server
+            .then(response => response.json())
+            .then(data => {
+                console.log("Messages data:", data);  // Log the response to check its structure
+                if (data.status === 'success') {
+                    let messagesHTML = `
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tanggal</th>
+                                    <th>Pengirim</th>
+                                    <th>Subject</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+                    
+                    data.data.forEach(message => {
+                        // Check if status exists, if not, set it to 'Unread'
+                        const messageStatus = message.read ? 'read' : 'unread';
+                        messagesHTML += `
+                            <tr>
+                                <td>${message.id}</td>
+                                <td>${message.date}</td>
+                                <td>${message.sender}</td>
+                                <td>${message.subject}</td>
+                                <td><span class="status-badge status-${messageStatus}">${message.read ? 'Dibaca' : 'Belum Dibaca'}</span></td>
+                                <td>
+                                    <button onclick="deleteOrder(${order.id})" class="btn btn-danger">Hapus Order ${order.id}</button>
+                                    <button class="admin-btn delete-btn">Hapus</button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                    
+                    messagesHTML += `
+                        </tbody>
+                    </table>
+                    `;
+                    
+                    messagesList.innerHTML = messagesHTML;  // Render the messages table
+                } else {
+                    messagesList.innerHTML = `<p>${data.message}</p>`;
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching messages:", error);
+                messagesList.innerHTML = `<p>Error loading messages data.</p>`;
+            });
+    }
+}
+
+// Load admin data on page load
+loadAdminData();
+
+
+});
+
+function loadAdminData() {
+    // Load orders data
+    const ordersList = document.getElementById('ordersList');
+    if (ordersList) {
+        fetch('/api/orders')  // Fetch orders data from the server
+            .then(response => response.json())
+            .then(data => {
+                console.log("Orders data:", data);  // Log the response to check its structure
+                if (data.status === 'success') {
+                    let ordersHTML = `
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tanggal</th>
+                                    <th>Pelanggan</th>
+                                    <th>Produk</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+                    
+                    data.data.forEach(order => {
+                        // Check if status exists, if not, set it to 'Unknown'
+                        const status = order.status ? order.status.toLowerCase() : 'pending';
+                        ordersHTML += `
+                            <tr data-order-id="${order.id}">
+                                <td>${order.id}</td>
+                                <td>${order.date}</td>
+                                <td>${order.name}</td>
+                                <td>${order.product}</td>
+                                <td><span class="status-badge status-${status}">${order.status || 'pending'}</span></td>
+                                <td>
+                                    <button onclick="deleteOrder(${order.id})" class="btn btn-danger">Hapus Order ${order.id}</button>
+                                    <button class="admin-btn edit-btn" data-id="${order.id}">Edit</button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                    
+                    ordersHTML += `
+                        </tbody>
+                    </table>
+                    `;
+                    
+                    ordersList.innerHTML = ordersHTML;  // Render the orders table
+                } else {
+                    ordersList.innerHTML = `<p>${data.message}</p>`;
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching orders:", error);
+                ordersList.innerHTML = `<p>Error loading orders data.</p>`;
+            });
+    }
+
+    // Load messages data
+    const messagesList = document.getElementById('messagesList');
+    if (messagesList) {
+        fetch('/api/messages')  // Fetch messages data from the server
+            .then(response => response.json())
+            .then(data => {
+                console.log("Messages data:", data);  // Log the response to check its structure
+                if (data.status === 'success') {
+                    let messagesHTML = `
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tanggal</th>
+                                    <th>Pengirim</th>
+                                    <th>Subject</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+                    
+                    data.data.forEach(message => {
+                        // Check if status exists, if not, set it to 'Unread'
+                        const messageStatus = message.read ? 'read' : 'unread';
+                        messagesHTML += `
+                            <tr data-message-id="${message.id}">
+                                <td>${message.id}</td>
+                                <td>${message.date}</td>
+                                <td>${message.sender}</td>
+                                <td>${message.subject}</td>
+                                <td><span class="status-badge status-${messageStatus}">${message.read ? 'Dibaca' : 'Belum Dibaca'}</span></td>
+                                <td>
+                                    <button class="admin-btn view-btn" data-id="${message.id}">Lihat</button>
+                                    <button class="admin-btn delete-btn" data-id="${message.id}">Hapus</button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                    
+                    messagesHTML += `
+                        </tbody>
+                    </table>
+                    `;
+                    
+                    messagesList.innerHTML = messagesHTML;  // Render the messages table
+                } else {
+                    messagesList.innerHTML = `<p>${data.message}</p>`;
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching messages:", error);
+                messagesList.innerHTML = `<p>Error loading messages data.</p>`;
+            });
+    }
+}
+
+// Function to view order details
+function viewOrder(orderId) {
+    console.log(`Viewing order with ID: ${orderId}`);
+
+    if (!orderId) {
+        console.error('Invalid order ID');
+        alert('Invalid order ID');
+        return;  // Exit if orderId is invalid
+    }
+
+    // Fetch the specific order details
+    fetch(`/api/orders/${orderId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                const order = data.data;
+                console.log(order);
+
+                // Create modal for order details
+                const modalHTML = `
+                    <div class="modal" id="orderModal">
+                        <div class="modal-content">
+                            <span class="close-modal" onclick="closeModal('orderModal')">&times;</span>
+                            <h2>Detail Pesanan #${order.id}</h2>
+                            <div class="order-details">
+                                <p><strong>Tanggal:</strong> ${order.date}</p>
+                                <p><strong>Pelanggan:</strong> ${order.name}</p>
+                                <p><strong>Email:</strong> ${order.email || 'N/A'}</p>
+                                <p><strong>Telepon:</strong> ${order.phone || 'N/A'}</p>
+                                <p><strong>Alamat:</strong> ${order.address || 'N/A'}</p>
+                                <p><strong>Produk:</strong> ${order.product}</p>
+                                <p><strong>Jumlah:</strong> ${order.quantity || 1}</p>
+                                <p><strong>Harga:</strong> Rp ${order.price || 'N/A'}</p>
+                                <p><strong>Status:</strong> <span class="status-badge status-${order.status?.toLowerCase() || 'Selesai'}">${order.status || 'pending'}</span></p>
+                                <p><strong>Catatan:</strong> ${order.notes || 'N/A'}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="admin-btn" onclick="closeModal('orderModal')">Tutup</button>
+                                <button class="admin-btn edit-btn" onclick="closeModal('orderModal'); editOrder(${order.id})">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Append modal to body and show it
+                document.body.insertAdjacentHTML('beforeend', modalHTML);
+                document.getElementById('orderModal').style.display = 'block';
+             } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching order details:", error);
+            alert('Error loading order details: ' + error.message);
+        });
+}
+
+function deleteOrder(orderId) {
+    if (confirm("Are you sure you want to delete this order?")) {
+        fetch(`/api/orders/${orderId}`, {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(text => {
+                    throw new Error('Failed to delete order: ' + text);
+                });
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.status === 'success') {
+                alert('Order deleted successfully');
+                loadAdminData();  // Reload orders data
+            } else {
+                alert('Failed to delete order');
+            }
+        })
+        .catch(error => {
+            console.error('Error deleting order:', error);
+            alert('An error occurred while deleting the order');
+        });
+    }
+}
+
+
+// Function to edit order
+function editOrder(orderId) {
+    console.log(`Editing order with ID: ${orderId}`);
+    
+    // Fetch the specific order details for editing
+    fetch(`/api/orders/${orderId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                const order = data.data;
+                
+                // Create modal for order editing
+                const modalHTML = `
+                    <div class="modal" id="orderEditModal">
+                        <div class="modal-content">
+                            <span class="close-modal" onclick="closeModal('orderEditModal')">&times;</span>
+                            <h2>Edit Pesanan #${order.id}</h2>
+                            <form id="editOrderForm">
+                                <input type="hidden" name="orderId" value="${order.id}">
+                                
+                                <div class="form-group">
+                                    <label for="name">Pelanggan:</label>
+                                    <input type="text" id="name" name="name" value="${order.name || ''}" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" value="${order.email || ''}">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone">Telepon:</label>
+                                    <input type="text" id="phone" name="phone" value="${order.phone || ''}">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="address">Alamat:</label>
+                                    <textarea id="address" name="address">${order.address || ''}</textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="product">Produk:</label>
+                                    <input type="text" id="product" name="product" value="${order.product || ''}" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="quantity">Jumlah:</label>
+                                    <input type="number" id="quantity" name="quantity" value="${order.quantity || 1}" min="1">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="price">Harga:</label>
+                                    <input type="text" id="price" name="price" value="${order.price || ''}">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="status">Status:</label>
+                                    <select id="status" name="status">
+                                        <option value="pending" ${(order.status?.toLowerCase() === 'pending') ? 'selected' : ''}>Pending</option>
+                                        <option value="processing" ${(order.status?.toLowerCase() === 'processing') ? 'selected' : ''}>Processing</option>
+                                        <option value="shipped" ${(order.status?.toLowerCase() === 'shipped') ? 'selected' : ''}>Shipped</option>
+                                        <option value="delivered" ${(order.status?.toLowerCase() === 'delivered') ? 'selected' : ''}>Delivered</option>
+                                        <option value="cancelled" ${(order.status?.toLowerCase() === 'cancelled') ? 'selected' : ''}>Cancelled</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="notes">Catatan:</label>
+                                    <textarea id="notes" name="notes">${order.notes || ''}</textarea>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <button type="button" class="admin-btn" onclick="closeModal('orderEditModal')">Batal</button>
+                                    <button type="button" class="admin-btn save-btn" onclick="saveOrder()">Simpan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                `;
+                
+                // Append modal to body and show it
+                document.body.insertAdjacentHTML('beforeend', modalHTML);
+                document.getElementById('orderEditModal').style.display = 'block';
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching order details for editing:", error);
+            alert('Error loading order details for editing.');
+        });
+}
+
+// Function to save edited order
+function saveOrder() {
+    const form = document.getElementById('editOrderForm');
+    const orderId = form.elements.orderId.value;
+    
+    // Create an object with the form data
+    const orderData = {
+        id: orderId,
+        name: form.elements.name.value,
+        email: form.elements.email.value,
+        phone: form.elements.phone.value,
+        address: form.elements.address.value,
+        product: form.elements.product.value,
+        quantity: form.elements.quantity.value,
+        price: form.elements.price.value,
+        status: form.elements.status.value,
+        notes: form.elements.notes.value
+    };
+    
+    // Send the updated data to the server
+    fetch(`/api/orders/${orderId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(orderData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            alert('Pesanan berhasil diperbarui!');
+            closeModal('orderEditModal');
+            // Reload admin data to reflect changes
+            loadAdminData();
+        } else {
+            alert('Error: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error("Error saving order:", error);
+        alert('Error saving order.');
+    });
+}
+
+// Function to view message details
+function viewMessage(messageId) {
+    console.log(`Viewing message with ID: ${messageId}`);
+    
+    // Fetch the specific message details
+    fetch(`/api/messages/${messageId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                const message = data.data;
+                
+                // Create modal for message details
+                const modalHTML = `
+                    <div class="modal" id="messageModal">
+                        <div class="modal-content">
+                            <span class="close-modal" onclick="closeModal('messageModal')">&times;</span>
+                            <h2>Detail Pesan #${message.id}</h2>
+                            <div class="message-details">
+                                <p><strong>Tanggal:</strong> ${message.date}</p>
+                                <p><strong>Pengirim:</strong> ${message.sender}</p>
+                                <p><strong>Email:</strong> ${message.email || 'N/A'}</p>
+                                <p><strong>Subject:</strong> ${message.subject}</p>
+                                <div class="message-body">
+                                    <p><strong>Pesan:</strong></p>
+                                    <div class="message-content">${message.content || 'No content'}</div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="admin-btn" onclick="closeModal('messageModal')">Tutup</button>
+                                <button class="admin-btn reply-btn" onclick="replyToMessage('${message.email}', '${message.subject}')">Balas</button>
+                                <button class="admin-btn delete-btn" onclick="confirmDeleteMessage(${message.id})">Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Append modal to body and show it
+                document.body.insertAdjacentHTML('beforeend', modalHTML);
+                document.getElementById('messageModal').style.display = 'block';
+                
+                // Mark the message as read if it's not already
+                if (!message.read) {
+                    markMessageAsRead(messageId);
+                }
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching message details:", error);
+            alert('Error loading message details.');
+        });
+}
+
+// Function to mark message as read
+function markMessageAsRead(messageId) {
+    fetch(`/api/messages/${messageId}/read`, {
+        method: 'PUT'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            // Update UI to reflect message is read
+            const messageRow = document.querySelector(`tr[data-message-id="${messageId}"]`);
+            if (messageRow) {
+                const statusCell = messageRow.querySelector('td:nth-child(5)');
+                if (statusCell) {
+                    statusCell.innerHTML = '<span class="status-badge status-read">Dibaca</span>';
+                }
+            }
+        }
+    })
+    .catch(error => {
+        console.error("Error marking message as read:", error);
+    });
+}
+
+// Function to reply to a message
+function replyToMessage(email, subject) {
+    // Create reply modal or redirect to email client
+    const replySubject = subject.startsWith('Re:') ? subject : `Re: ${subject}`;
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent(replySubject)}`;
+}
+
+// Function to confirm message deletion
+function confirmDeleteMessage(messageId) {
+    if (confirm('Apakah Anda yakin ingin menghapus pesan ini?')) {
+        deleteMessage(messageId);
+        closeModal('messageModal');
+    }
+}
+
+// Function to delete a message
+function deleteMessage(messageId) {
+    console.log(`Deleting message with ID: ${messageId}`);
+    
+    fetch(`/api/messages/${messageId}`, {
+        method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            alert('Pesan berhasil dihapus!');
+            // Remove the row from the table
+            const messageRow = document.querySelector(`tr[data-message-id="${messageId}"]`);
+            if (messageRow) {
+                messageRow.remove();
+            }
+        } else {
+            alert('Error: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error("Error deleting message:", error);
+        alert('Error deleting message.');
+    });
+}
+
+// Function to close modals
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none';
+        modal.remove(); // Remove the modal from DOM after closing
+    }
+}
+
+// Add event listeners for order view and edit buttons
+function addEventListeners() {
+    // For orders
+    document.addEventListener('click', function(e) {
+        // Check if clicked element is a view or edit button
+        if (e.target.classList.contains('view-btn')) {
+            const id = e.target.getAttribute('data-id');
+            if (e.target.closest('#ordersList')) {
+                viewOrder(id);
+            } else if (e.target.closest('#messagesList')) {
+                viewMessage(id);
+            }
+        } else if (e.target.classList.contains('edit-btn') && e.target.closest('#ordersList')) {
+            const id = e.target.getAttribute('data-id');
+            editOrder(id);
+        } else if (e.target.classList.contains('delete-btn') && e.target.closest('#messagesList')) {
+            const id = e.target.getAttribute('data-id');
+            confirmDeleteMessage(id);
+        }
+    });
+}
+
+// Load admin data on page load
+loadAdminData();
+
+// Add event listeners
+addEventListeners();
+
+// Add CSS for modals and other UI elements
+function addAdminStyles() {
+    const styleElement = document.createElement('style');
+    styleElement.textContent = `
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .form-group textarea {
+            height: 100px;
+        }
+        
+        .modal-footer {
+            margin-top: 20px;
+            text-align: right;
+        }
+        
+        .message-content {
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+        
+        /* Button styles */
+        .admin-btn {
+            padding: 8px 15px;
+            margin-left: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .view-btn {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .edit-btn {
+            background-color: #f39c12;
+            color: white;
+        }
+        
+        .save-btn {
+            background-color: #2ecc71;
+            color: white;
+        }
+        
+        .delete-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .reply-btn {
+            background-color: #9b59b6;
+            color: white;
+        }
+    `;
+    document.head.appendChild(styleElement);
+}
+
+// Add admin styles
+addAdminStyles();
+</script>
+</body> 
