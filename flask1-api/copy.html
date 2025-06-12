@@ -1,0 +1,1778 @@
+<!DOCTYPE html>  
+<html lang="id">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Bouquetiverse - Buket Spesial Untuk Momen Spesialmu</title>  
+    <style>  
+        /* Mengimpor font dari Google Fonts */  
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@600&display=swap');  
+
+        * {  
+            margin: 0;  
+            padding: 0;  
+            box-sizing: border-box;  
+        }  
+
+        body {  
+            font-family: 'Poppins', sans-serif;  
+            background-color: #fff8fa;  
+            color: #333;  
+            line-height: 1.6;  
+            display: flex;  
+            flex-direction: column;  
+            align-items: center; /* Memusatkan konten di tengah secara horizontal*/   
+        }  
+
+        .header {  
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);  
+            padding: 20px 80px;  
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  
+            position: relative;  
+            overflow: hidden;  
+            width: 100%;  /* Mengatur lebar header */  
+            text-align: center;  
+        }  
+
+        .header::before {  
+            content: "";  
+            position: absolute;  
+            top: 0;  
+            left: 0;  
+            width: 100%;  
+            height: 100%;  
+            background: url('/api/placeholder/200/200') no-repeat;  
+            background-size: 100px;  
+            opacity: 0.1;  
+        }  
+
+        .container {  
+            width: 90%;  
+            max-width: 1200px;  
+            margin: 0 auto;  
+            position: relative;  
+        }  
+
+        .nav {  
+            display: flex;  
+            justify-content: space-between;  
+            align-items: center;  
+            padding: 10px 0;  
+        }  
+
+        .logo {  
+            display: flex;  
+            align-items: center;  
+        }  
+
+        .logo-text {  
+            font-family: 'Dancing Script', cursive;  
+            font-size: 2.5rem;  
+            color: #e91e63;  
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);  
+            margin-left: 10px;  
+        }  
+
+        .logo img {  
+            width: 50px;                /* Set a fixed width */  
+            height: 50px;               /* Set a fixed height to maintain aspect ratio */  
+            border-radius: 50%;         /* Make the image round */  
+            object-fit: cover;          /* Cover to ensure the image fits within the circle */  
+            border: 2px solid #e91e63;  /* Optional: add a border for better appearance */  
+        }  
+
+        .nav-links {  
+            display: flex;  
+            gap: 20px;  
+        }  
+
+        .nav-links a {  
+            color: #333;  
+            text-decoration: none;  
+            font-weight: 600;  
+            padding: 5px 10px;  
+            border-radius: 20px;  
+            transition: all 0.3s ease;  
+        }  
+
+        .nav-links a:hover {  
+            background-color: #ffcdd2;  
+            color: #d81b60;  
+        }  
+
+        .hero {  
+            display: flex;  
+            flex-direction: column;  
+            align-items: center;  
+            text-align: center;  
+            padding: 60px 20px;  
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('/api/placeholder/800/400');  
+            background-size: cover;  
+            background-position: center;  
+            border-radius: 10px;  
+            margin: 20px 0;  
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);  
+        }  
+
+        .hero h1 {  
+            font-size: 3rem;  
+            margin-bottom: 20px;  
+            color: #e91e63;  
+            font-family: 'Dancing Script', cursive;  
+        }  
+
+        .hero p {  
+            font-size: 1.2rem;  
+            margin-bottom: 30px;  
+            max-width: 600px;  
+        }  
+
+        .btn {  
+            display: inline-block;  
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);  
+            color: white;  
+            padding: 12px 30px;  
+            border-radius: 50px;  
+            text-decoration: none;  
+            font-weight: bold;  
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);  
+            transition: all 0.3s ease;  
+            border: none;  
+            cursor: pointer;  
+        }  
+
+        .btn:hover {  
+            transform: translateY(-3px);  
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);  
+        }  
+
+        .featured {  
+            padding: 60px 0;  
+        }  
+
+        .section-title {  
+            text-align: center;  
+            font-size: 2.2rem;  
+            margin-bottom: 40px;  
+            color: #e91e63;  
+            font-family: 'Dancing Script', cursive;  
+        }  
+
+        .products {  
+            display: grid;  
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));  
+            gap: 30px;  
+        }  
+
+        .product-card {  
+            background: white;  
+            border-radius: 15px;  
+            overflow: hidden;  
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);  
+            transition: transform 0.3s ease;  
+        }  
+
+        .product-card:hover {  
+            transform: translateY(-10px);  
+        }  
+
+        .product-img {  
+            height: 200px;  
+            background-size: cover;  
+            background-position: center;  
+        }  
+
+        .product-info {  
+            padding: 20px;  
+        }  
+
+        .product-info h3 {  
+            font-size: 1.2rem;  
+            margin-bottom: 10px;  
+            color: #333;  
+        }  
+
+        .product-info p {  
+            color: #666;  
+            margin-bottom: 15px;  
+        }  
+
+        .price {  
+            font-weight: bold;  
+            color: #e91e63;  
+            font-size: 1.2rem;  
+            margin-bottom: 15px;  
+            display: block;  
+        }  
+
+        .about {  
+            padding: 60px 0;  
+            background: #fff;  
+            border-radius: 10px;  
+            margin: 20px 0;  
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);  
+        }  
+
+        .about-content {  
+            display: flex;  
+            align-items: center;  
+            gap: 40px;  
+        }  
+
+        .about-img {  
+            flex: 1;  
+            border-radius: 10px;  
+            overflow: hidden;  
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  
+        }  
+
+        .about-text {  
+            flex: 1;  
+        }  
+
+        .about-text h2 {  
+            font-size: 2rem;  
+            margin-bottom: 20px;  
+            color: #e91e63;  
+        }  
+
+        .about-text p {  
+            margin-bottom: 20px;  
+            color: #555;  
+        }  
+
+        .testimonials {  
+            padding: 60px 0;  
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff8fa 100%);  
+            border-radius: 10px;  
+            margin: 20px 0;  
+        }  
+
+        .testimonial-cards {  
+            display: grid;  
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  
+            gap: 30px;  
+        }  
+
+        .testimonial-card {  
+            background: white;  
+            padding: 30px;  
+            border-radius: 10px;  
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);  
+            position: relative;  
+        }  
+
+        .testimonial-card::before {  
+            content: "\201C";  
+            position: absolute;  
+            top: 10px;  
+            left: 20px;  
+            font-size: 5rem;  
+            color: #ffcdd2;  
+            font-family: serif;  
+            line-height: 1;  
+            opacity: 0.3;  
+        }  
+
+        .testimonial-text {  
+            margin-bottom: 20px;  
+            position: relative;  
+            z-index: 1;  
+        }  
+
+        .testimonial-author {  
+            display: flex;  
+            align-items: center;  
+        }  
+
+        .author-avatar {  
+            width: 50px;  
+            height: 50px;  
+            border-radius: 50%;  
+            margin-right: 15px;  
+            background-size: cover;  
+            background-position: center;  
+        }  
+
+        .author-info h4 {  
+            margin: 0;  
+            color: #333;  
+        }  
+
+        .author-info small {  
+            color: #888;  
+        }  
+
+        .contact {  
+            padding: 60px 0;  
+        }  
+
+        .contact-form {  
+            max-width: 600px;  
+            margin: 0 auto;  
+            background: white;  
+            padding: 30px;  
+            border-radius: 10px;  
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);  
+        }  
+
+        .form-group {  
+            margin-bottom: 20px;  
+        }  
+
+        .form-group label {  
+            display: block;  
+            margin-bottom: 5px;  
+            color: #555;  
+        }  
+
+        .form-group input,  
+        .form-group textarea {  
+            width: 100%;  
+            padding: 12px;  
+            border: 1px solid #ddd;  
+            border-radius: 5px;  
+            font-family: 'Poppins', sans-serif;  
+        }  
+
+        .form-group textarea {  
+            height: 150px;  
+            resize: vertical;  
+        }  
+
+        .footer {  
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);  
+            color: #333;  
+            padding: 40px 0;  
+            text-align: center;  
+            margin-top: 60px;  
+            position: relative;  
+            overflow: hidden;  
+            width: 100%;  /* Mengatur lebar header */  
+        }  
+
+        .footer-content {  
+            display: flex;  
+            justify-content: space-between;  
+            flex-wrap: wrap;  
+            gap: 30px;  
+            margin-bottom: 30px;  
+        }  
+
+        .footer-section {  
+            flex: 1;  
+            min-width: 200px;  
+        }  
+
+        .footer-section h3 {  
+            font-size: 1.2rem;  
+            margin-bottom: 20px;  
+            color: #333;  
+        }  
+
+        .footer-section ul {  
+            list-style: none;  
+        }  
+
+        .footer-section ul li {  
+            margin-bottom: 10px;  
+        }  
+
+        .footer-section ul li a {  
+            color: #333;  
+            text-decoration: none;  
+            transition: color 0.3s ease;  
+        }  
+
+        .footer-section ul li a:hover {  
+            color: #e91e63;  
+        }  
+
+        .social-icons {  
+            display: flex;  
+            gap: 15px;  
+            justify-content: center;  
+            margin-top: 20px;  
+        }  
+
+        .social-icons a {  
+            display: flex;  
+            align-items: center;  
+            justify-content: center;  
+            width: 40px;  
+            height: 40px;  
+            background: white;  
+            border-radius: 50%;  
+            color: #e91e63;  
+            text-decoration: none;  
+            transition: all 0.3s ease;  
+        }  
+
+        .social-icons a:hover {  
+            transform: translateY(-3px);  
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);  
+        }  
+
+        .copyright {  
+            margin-top: 20px;  
+            padding-top: 20px;  
+            border-top: 1px solid rgba(0, 0, 0, 0.1);  
+        }  
+
+        .floating-flower {  
+            position: absolute;  
+            width: 30px;  
+            height: 30px;  
+            background: url('/api/placeholder/30/30') no-repeat;  
+            background-size: contain;  
+            animation: float 15s infinite linear;  
+            opacity: 0.6;  
+        }  
+
+        @keyframes float {  
+            0% {  
+                transform: translate(0, 0) rotate(0deg);  
+            }  
+            25% {  
+                transform: translate(100px, 50px) rotate(90deg);  
+            }  
+            50% {  
+                transform: translate(200px, 0) rotate(180deg);  
+            }  
+            75% {  
+                transform: translate(100px, -50px) rotate(270deg);  
+            }  
+            100% {  
+                transform: translate(0, 0) rotate(360deg);  
+            }  
+        }  
+
+        @media (max-width: 768px) {  
+            .nav {  
+                flex-direction: column;  
+                gap: 15px;  
+            }  
+
+            .hero h1 {  
+                font-size: 2.5rem;  
+            }  
+
+            .about-content {  
+                flex-direction: column;  
+            }  
+
+            .footer-content {  
+                flex-direction: column;  
+                text-align: center;  
+            }  
+
+            .social-icons {  
+                justify-content: center;  
+            }  
+        }  
+
+        /* CSS untuk Modal */  
+        .modal {  
+            display: none;   
+            position: fixed;   
+            z-index: 1000;   
+            left: 0;  
+            top: 0;  
+            width: 100%;   
+            height: 100%;   
+            overflow: auto;   
+            background-color: rgb(0,0,0);   
+            background-color: rgba(0,0,0,0.4);   
+        }  
+
+        .modal-content {  
+            background-color: #fefefe;  
+            margin: 15% auto;   
+            padding: 20px;  
+            border: 1px solid #888;  
+            width: 80%;   
+            max-width: 500px;  
+        }  
+
+        .close {  
+            color: #aaa;  
+            float: right;  
+            font-size: 28px;  
+            font-weight: bold;  
+        }  
+
+        .close:hover,  
+        .close:focus {  
+            color: black;  
+            text-decoration: none;  
+            cursor: pointer;  
+        }  
+
+        /* Admin Link Small Icon */
+        .admin-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: #e91e63;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            font-size: 16px;
+        }
+
+        .admin-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Admin Panel Styles */
+        #adminPanel {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .admin-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .admin-title {
+            font-size: 2.2rem;
+            color: #e91e63;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .admin-logout {
+            background: none;
+            border: none;
+            color: #e91e63;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .admin-logout:hover {
+            background-color: #ffcdd2;
+        }
+
+        .admin-close {
+            background: none;
+            border: none;
+            color: #e91e63;
+            cursor: pointer;
+            font-size: 2rem;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+        }
+
+        .admin-close:hover {
+            transform: scale(1.1);
+        }
+
+        .admin-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .admin-section h2 {
+            color: #e91e63;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .data-item {
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #e91e63;
+        }
+
+        .data-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .data-item p {
+            margin-bottom: 5px;
+        }
+
+        .data-item strong {
+            color: #555;
+        }
+
+        .data-item .date {
+            color: #888;
+            font-size: 0.9rem;
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            flex-grow: 1;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            background: #e91e63;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+        }
+        
+        /* Loading spinner */
+        .loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Success/error notification */
+        .notification {
+            padding: 10px 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Connection status indicator */
+        .connection-status {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 1000;
+            display: none;
+        }
+
+        .connection-online {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .connection-offline {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>  
+</head>  
+<body>  
+    <!-- Connection Status Indicator -->
+    <div id="connectionStatus" class="connection-status">
+        Memuat koneksi...
+    </div>
+
+    <!-- Elemen-elemen bunga yang mengambang sebagai dekorasi -->  
+    <div class="floating-flower" style="top: 10%; left: 5%; animation-delay: 0s;"></div>  
+    <div class="floating-flower" style="top: 15%; right: 10%; animation-delay: 2s;"></div>  
+    <div class="floating-flower" style="bottom: 20%; left: 15%; animation-delay: 4s;"></div>  
+    <div class="floating-flower" style="bottom: 10%; right: 5%; animation-delay: 6s;"></div>  
+    
+    <!-- Header Section -->  
+    <header class="header">  
+        <div class="container">  
+            <nav class="nav">  
+                <div class="logo">  
+                    <img src="static\images\WhatsApp Image 2025-05-15 at 19.54.58_f21a99e9.jpg" alt="Bouquetiverse Logo" width="50" height="50">  
+                    <span class="logo-text">Bouquetiverse</span>  
+                </div>  
+                <div class="nav-links">  
+                    <a href="#home">Beranda</a>  
+                    <a href="#products">Koleksi</a>  
+                    <a href="#about">Tentang Kami</a>  
+                    <a href="#testimonials">Testimoni</a>  
+                    <a href="#contact">Kontak</a>  
+                </div>  
+            </nav>  
+        </div>  
+    </header>  
+    
+    <!-- Hero Section -->  
+    <section id="home" class="hero container">  
+        <h1>Ungkapkan Perasaanmu dengan Buket Cantik</h1>  
+        <p>Buket spesial untuk momen spesialmu. Dibuat dengan cinta dan penuh kreativitas untuk menemani setiap momen bahagiamu.</p>  
+        <a href="#products" class="btn">Lihat Koleksi ✿</a>  
+    </section>  
+    
+    <!-- Featured Products Section -->  
+    <section id="products" class="featured container">  
+        <h2 class="section-title">Koleksi Buket Terbaru</h2>  
+        <div class="products">  
+            <!-- Product Card 1 -->  
+            <div class="product-card">  
+                <div class="product-img" style="background-image: url('/api/placeholder/400/200')"></div>  
+                <div class="product-info">  
+                    <h3>Bucket Snack</h3>  
+                    <p>Buket Snack favorit pasanganmu</p>  
+                    <span class="price">Rp 50.000</span>  
+                    <button class="btn" data-product="Bucket Snack">Pesan Sekarang</button>  
+                </div>  
+            </div>  
+            
+            <!-- Product Card 2 -->  
+            <div class="product-card">  
+                <div class="product-img" style="background-image: url('/api/placeholder/400/200')"></div>  
+                <div class="product-info">  
+                    <h3>Buket Bunga</h3>  
+                    <p>Buket Bunga favorit pasanganmu</p>  
+                    <span class="price">Rp 80.000</span>  
+                    <button class="btn" data-product="Buket Bunga">Pesan Sekarang</button>  
+                </div>  
+            </div>  
+            
+            <!-- Product Card 3 -->  
+            <div class="product-card">  
+                <div class="product-img" style="background-image: url('/api/placeholder/400/200')"></div>  
+                <div class="product-info">  
+                    <h3>Buket Boneka</h3>  
+                    <p>Buket boneka dengan boneka favorit pasanganmu</p>  
+                    <span class="price">Rp 100.000</span>  
+                    <button class="btn" data-product="Buket Boneka">Pesan Sekarang</button>  
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+    
+    <!-- About Section -->  
+    <section id="about" class="about container">  
+        <h2 class="section-title">Tentang Bouquetiverse</h2>  
+        <div class="about-content">  
+            <div class="about-img">  
+                <img src="/api/placeholder/600/400" alt="Bouquetiverse Workshop" width="100%">  
+            </div>  
+            <div class="about-text">  
+                <h2>Cerita Kami</h2>  
+                <p>Bouquetiverse hadir dari kecintaan kami terhadap keinginan untuk membuat setiap momen spesial menjadi lebih bermakna. Berdiri sejak 2025, kami ingin melayani ribuan pelanggan dengan buket yang dibuat khusus sesuai keinginan.</p>  
+                <p>Setiap buket kami rangkai dengan penuh cinta dan dedikasi, menggunakan bahan-bahan pilihan dan material berkualitas untuk menghasilkan karya yang tidak hanya cantik, tapi juga berkesan.</p>  
+                <a href="#contact" class="btn">Hubungi Kami</a>  
+            </div>  
+        </div>  
+    </section>  
+    
+    <!-- Testimonials Section -->  
+    <section id="testimonials" class="testimonials container">  
+        <h2 class="section-title">Apa Kata Mereka?</h2>  
+        <div class="testimonial-cards">  
+            <!-- Testimonial 1 -->  
+            <div class="testimonial-card">  
+                <p class="testimonial-text">"Buket dari Bouquetiverse benar-benar cantik dan aesthetic! Pacar saya sangat suka dengan surprisenya. Pasti akan pesan lagi untuk anniversary nanti."</p>  
+                <div class="testimonial-author">  
+                    <div class="author-avatar" style="background-image: url('/api/placeholder/50/50')"></div>  
+                    <div class="author-info">  
+                        <h4>Anita Wijaya</h4>  
+                        <small>Jakarta</small>  
+                    </div>  
+                </div>  
+            </div>  
+            
+            <!-- Testimonial 2 -->  
+            <div class="testimonial-card">  
+                <p class="testimonial-text">"Pengiriman tepat waktu dan buket bunga tulipnya persis seperti di foto. Admin juga sangat ramah dan membantu. Recommended banget!"</p>  
+                <div class="testimonial-author">  
+                    <div class="author-avatar" style="background-image: url('/api/placeholder/50/50')"></div>  
+                    <div class="author-info">  
+                        <h4>Budi Santoso</h4>  
+                        <small>Bandung</small>  
+                    </div>  
+                </div>  
+            </div>
+            
+            <!-- Testimonial 3 -->  
+            <div class="testimonial-card">  
+                <p class="testimonial-text">"Buket untuk wisuda adik saya jadi perhatian semua orang. Desainnya unik dan berbeda dari yang lain. Terima kasih Bouquetiverse!"</p>  
+                <div class="testimonial-author">  
+                    <div class="author-avatar" style="background-image: url('/api/placeholder/50/50')"></div>  
+                    <div class="author-info">  
+                        <h4>Siti Rahayu</h4>  
+                        <small>Surabaya</small>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+    
+    <!-- Contact Section -->  
+    <section id="contact" class="contact container">  
+        <h2 class="section-title">Hubungi Kami</h2>  
+    </section>  
+    
+    <!-- Modal Pemesanan -->  
+    <div id="orderModal" class="modal">  
+        <div class="modal-content">  
+            <span class="close">&times;</span>  
+            <h2>Proses Pemesanan</h2>  
+            <form class="order-form">  
+                <div class="form-group">  
+                    <label for="product">Produk Dipilih</label>  
+                    <input type="text" id="product" placeholder="Isi Nama Produk" readonly required>  
+                </div>  
+                <div class="form-group">  
+                    <label for="orderName">Nama Lengkap</label>  
+                    <input type="text" id="orderName" placeholder="Nama" required>  
+                </div>  
+                <div class="form-group">  
+                    <label for="orderEmail">Email</label>  
+                    <input type="email" id="orderEmail" placeholder="aesthetic@gmail.com" required>  
+                </div>  
+                <div class="form-group">  
+                    <label for="orderPhone">No. Handphone</label>  
+                    <input type="tel" id="orderPhone" placeholder="+62-822-6011-6061" required>  
+                </div>  
+                <div class="form-group">  
+                    <label for="orderAddress">Alamat Pengiriman</label>  
+                    <textarea id="orderAddress" placeholder="Tulis alamat pengiriman di sini..." required></textarea>  
+                </div>  
+                <button type="submit" class="btn" id="submitOrderBtn">Kirim Pesanan <span id="orderLoader" style="display: none;" class="loader"></span></button>
+                <div id="orderNotification" class="notification"></div>
+            </form>  
+        </div>  
+    </div>  
+
+    <!-- Admin Icon -->
+    <a href="#" id="adminIconBtn" class="admin-icon">A</a>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel">
+        <!-- Login Form -->
+        <div id="loginForm" class="login-container">
+            <h2 class="admin-title">Admin Login</h2>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Password">
+            </div>
+            <button class="btn" id="loginBtn">Login</button>
+            <div id="loginNotification" class="notification"></div>
+        </div>
+
+        <!-- Admin Content -->
+        <div class="admin-container" id="adminContent" style="display:none;">
+            <button class="admin-close" id="adminCloseBtn">&times;</button>
+            <div class="admin-header">
+                <h1 class="admin-title">Admin Panel - Bouquetiverse</h1>
+                <button class="admin-logout" id="logoutBtn">Logout</button>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" data-tab="ordersTab">Pesanan</button>
+                <button class="tab" data-tab="messagesTab">Pesan</button>
+            </div>
+
+            <!-- Orders Tab -->
+            <div class="tab-content active" id="ordersTab">
+                <div class="admin-section">
+                    <h2>Daftar Pesanan</h2>
+                    <div id="ordersList">
+                        <div style="text-align: center;">
+                            <p>Memuat data pesanan...</p>
+                            <div class="loader" style="display: inline-block;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Messages Tab -->
+            <div class="tab-content" id="messagesTab">
+                <div class="admin-section">
+                    <h2>Daftar Pesan</h2>
+                    <div id="messagesList">
+                        <div style="text-align: center;">
+                            <p>Memuat data pesan...</p>
+                            <div class="loader" style="display: inline-block;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer Section -->  
+    <footer class="footer">  
+        <div class="container">  
+            <div class="footer-content">  
+                <!-- Footer Section 1 -->  
+                <div class="footer-section">  
+                    <h3>Bouquetiverse</h3>  
+                    <p>Membuat setiap momenmu menjadi lebih spesial dengan buket cantik dan penuh makna.</p>  
+                    <div class="social-icons">  
+                        <a href="#" title="Facebook">FB</a>  
+                        <a href="#" title="Instagram">IG</a>  
+                        <a href="#" title="WhatsApp">WA</a>  
+                        <a href="#" title="TikTok">TT</a>  
+                    </div>  
+                </div>  
+                
+                <!-- Footer Section 2 -->  
+                <div class="footer-section">  
+                    <h3>Halaman</h3>  
+                    <ul>  
+                        <li><a href="#home">Beranda</a></li>  
+                        <li><a href="#products">Koleksi</a></li>  
+                        <li><a href="#about">Tentang Kami</a></li>  
+                        <li><a href="#testimonials">Testimoni</a></li>  
+                        <li><a href="#contact">Kontak</a></li>  
+                    </ul>  
+                </div>  
+                
+                <!-- Footer Section 3 -->  
+                <div class="footer-section">  
+                    <h3>Kontak</h3>  
+                    <ul>  
+                        <li>Jl. Medan - Banda Aceh, Mesjid Punteut</li>  
+                        <li>Kota Lhokseumawe, Aceh, Indonesia </li>  
+                        <li>Telp: +62 822 6011 6061</li>  
+                        <li>Email: Bouquetiverse@gmail.com</li>  
+                    </ul>  
+                </div>  
+            </div>  
+            
+            <!-- Copyright -->  
+            <div class="copyright">  
+                <p>&copy; 2025 Bouquetiverse. Semua Hak Dilindungi.</p>  
+            </div>  
+        </div>  
+    </footer>  
+    
+    <!-- JavaScript -->  
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyC-3y-sFunqJ9BD50Ey1TxjVY43LPOUIUY",
+            authDomain: "bouquetiverse.firebaseapp.com",
+            databaseURL: "https://bouquetiverse-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "bouquetiverse",
+            storageBucket: "bouquetiverse.appspot.com",
+            messagingSenderId: "342340088573",
+            appId: "1:342340088573:web:e1e055bfbe5de0be598c87"
+        };
+        
+        // Verifikasi Firebase URL
+        if (!firebaseConfig.databaseURL) {
+            console.error("Error: Firebase databaseURL tidak dikonfigurasi!");
+        } else {
+            console.log("Firebase databaseURL:", firebaseConfig.databaseURL);
+        }
+        
+        // Inisialisasi Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+        
+        // Monitor semua request Firebase
+        window.addEventListener('load', function() {
+            console.log("Mulai monitoring koneksi jaringan...");
+            // Fungsi untuk mencari tahu apakah request ke Firebase gagal
+            const originalFetch = window.fetch;
+            window.fetch = function(url, options) {
+                const startTime = new Date().getTime();
+                const isFirebaseRequest = url.toString().includes('firebaseio.com') || 
+                                        url.toString().includes('googleapis.com');
+                
+                if (isFirebaseRequest) {
+                    console.log(`Request Firebase: ${url}`);
+                }
+                
+                return originalFetch(url, options)
+                    .then(response => {
+                        const endTime = new Date().getTime();
+                        if (isFirebaseRequest) {
+                            console.log(`Firebase response: ${response.status} in ${endTime - startTime}ms`);
+                            if (!response.ok) {
+                                console.error(`Firebase request failed: ${response.status} ${response.statusText}`);
+                            }
+                        }
+                        return response;
+                    })
+                    .catch(error => {
+                        if (isFirebaseRequest) {
+                            console.error(`Firebase request error:`, error);
+                            connectionStatusEl.textContent = `Error koneksi: ${error.message}`;
+                            connectionStatusEl.className = "connection-status connection-offline";
+                            connectionStatusEl.style.display = "block";
+                        }
+                        throw error;
+                    });
+            };
+        });
+
+        // Deteksi koneksi Firebase dengan lebih baik
+        const connectionStatusEl = document.getElementById('connectionStatus');
+        const connectedRef = firebase.database().ref(".info/connected");
+
+        // Variabel untuk mengelola status koneksi
+        let isConnectedToFirebase = false;
+        let retryCount = 0;
+        const maxRetries = 5;
+
+        function tryConnectToFirebase() {
+            console.log(`Mencoba terhubung ke Firebase... (percobaan ${retryCount + 1}/${maxRetries})`);
+            connectionStatusEl.textContent = `Menghubungkan ke server... (${retryCount + 1}/${maxRetries})`;
+            connectionStatusEl.className = "connection-status connection-offline";
+            connectionStatusEl.style.display = "block";
+            
+            // Periksa URL database
+            console.log("URL Firebase yang digunakan:", firebaseConfig.databaseURL);
+            
+            // Coba akses database dengan ping sederhana
+            fetch(`${firebaseConfig.databaseURL}/.json?shallow=true`)
+                .then(response => {
+                    if (response.ok) {
+                        console.log("Firebase REST API dapat diakses");
+                    } else {
+                        console.error("Firebase tidak dapat diakses via REST API:", response.status);
+                        throw new Error(`REST API error: ${response.status}`);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error menghubungi Firebase:", error);
+                    // Coba lagi jika belum mencapai batas percobaan
+                    if (retryCount < maxRetries) {
+                        retryCount++;
+                        setTimeout(tryConnectToFirebase, 3000); // Coba lagi setelah 3 detik
+                    } else {
+                        connectionStatusEl.textContent = "Gagal terhubung ke server. Periksa koneksi internet Anda.";
+                        connectionStatusEl.className = "connection-status connection-offline";
+                        connectionStatusEl.style.display = "block";
+                    }
+                });
+        }
+
+        // Pantau koneksi Firebase
+        connectedRef.on("value", (snap) => {
+            if (snap.val() === true) {
+                console.log("Connected to Firebase");
+                isConnectedToFirebase = true;
+                retryCount = 0;
+                connectionStatusEl.textContent = "Terhubung ke server";
+                connectionStatusEl.className = "connection-status connection-online";
+                connectionStatusEl.style.display = "block";
+                
+                // Sembunyikan notifikasi setelah 3 detik
+                setTimeout(() => {
+                    connectionStatusEl.style.display = "none";
+                }, 3000);
+            } else {
+                console.log("Not connected to Firebase");
+                isConnectedToFirebase = false;
+                
+                // Hanya coba menghubungkan ulang jika online
+                if (navigator.onLine) {
+                    tryConnectToFirebase();
+                } else {
+                    connectionStatusEl.textContent = "Tidak ada koneksi internet";
+                    connectionStatusEl.className = "connection-status connection-offline";
+                    connectionStatusEl.style.display = "block";
+                }
+            }
+        });
+
+        // Enable offline capabilities dengan cara yang lebih kompatibel
+        try {
+            if (typeof firebase.database().setPersistenceEnabled === 'function') {
+                firebase.database().setPersistenceEnabled(true);
+                console.log("Persistensi diaktifkan dengan setPersistenceEnabled()");
+            } else if (typeof firebase.database().enablePersistence === 'function') {
+                firebase.database().enablePersistence();
+                console.log("Persistensi diaktifkan dengan enablePersistence()");
+            } else {
+                console.log("Menggunakan metode alternatif untuk persistensi");
+                // Tidak menggunakan goOffline/goOnline karena berpotensi mengganggu koneksi
+            }
+        } catch (error) {
+            console.warn("Tidak dapat mengaktifkan persistensi:", error);
+        }
+        
+        // Gunakan REST API sebagai fallback jika WebSocket gagal
+        function sendDataWithRESTAPI(path, data) {
+            return fetch(`${firebaseConfig.databaseURL}/${path}.json`, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('REST API request failed');
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {  
+            // Tambahkan listener untuk status koneksi internet
+            window.addEventListener('online', updateOnlineStatus);
+            window.addEventListener('offline', updateOnlineStatus);
+            
+            // Hapus status login admin saat halaman dimuat (untuk testing - hapus baris ini di produksi)
+            // localStorage.removeItem('adminLoggedIn');
+            
+            // Cek status koneksi internet saat halaman dimuat
+            updateOnlineStatus();
+            
+            function updateOnlineStatus() {
+                const isOnline = navigator.onLine;
+                console.log("Internet connection:", isOnline ? "Online" : "Offline");
+                
+                if (!isOnline) {
+                    connectionStatusEl.textContent = "Tidak ada koneksi internet";
+                    connectionStatusEl.className = "connection-status connection-offline";
+                    connectionStatusEl.style.display = "block";
+                    
+                    // Disable buttons jika offline
+                    document.querySelectorAll('.btn').forEach(btn => {
+                        if (btn.id === "sendMessageBtn" || btn.id === "submitOrderBtn") {
+                            btn.disabled = true;
+                        }
+                    });
+                } else {
+                    // Re-enable buttons jika online
+                    document.querySelectorAll('.btn').forEach(btn => {
+                        if (btn.id === "sendMessageBtn" || btn.id === "submitOrderBtn") {
+                            btn.disabled = false;
+                        }
+                    });
+                    
+                    // Coba hubungkan kembali ke Firebase jika online
+                    if (!isConnectedToFirebase) {
+                        tryConnectToFirebase();
+                    }
+                }
+            }
+            
+            // Smooth scrolling  
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {  
+                anchor.addEventListener('click', function(e) {  
+                    if (this.getAttribute('href') === '#') return;
+                    
+                    e.preventDefault();  
+                    
+                    const targetId = this.getAttribute('href');  
+                    const targetElement = document.querySelector(targetId);  
+                    
+                    if (targetElement) {  
+                        window.scrollTo({  
+                            top: targetElement.offsetTop - 100,  
+                            behavior: 'smooth'  
+                        });  
+                    }  
+                });  
+            });  
+            
+            // Membuat elemen bunga tambahan  
+            function createFlowers() {  
+                for (let i = 0; i < 5; i++) {  
+                    const flower = document.createElement('div');  
+                    flower.className = 'floating-flower';  
+                    flower.style.top = Math.random() * 100 + '%';  
+                    flower.style.left = Math.random() * 100 + '%';  
+                    flower.style.animationDelay = (Math.random() * 10) + 's';  
+                    document.body.appendChild(flower);  
+                }  
+            }  
+
+            createFlowers();  
+
+            // Mendapatkan modal  
+            var modal = document.getElementById("orderModal");  
+            var productInput = document.getElementById("product");  
+            
+            // Mendapatkan tombol "Pesan Sekarang" dan menambah event listener  
+            document.querySelectorAll('.btn[data-product]').forEach(button => {  
+                button.addEventListener('click', function(e) {  
+                    e.preventDefault();
+                    
+                    // Check if online
+                    if (!navigator.onLine) {
+                        showNotification('messageNotification', 'Tidak dapat memesan saat offline. Silakan cek koneksi internet Anda.', false);
+                        return;
+                    }   
+                    
+                    // Check if connected to Firebase
+                    if (!isConnectedToFirebase) {
+                        showNotification('messageNotification', 'Tidak terhubung ke server. Silakan tunggu atau muat ulang halaman.', false);
+                        return;
+                    }
+                    
+                    productInput.value = this.dataset.product; // Set nama produk ke input  
+                    modal.style.display = "block";   
+                });  
+            });  
+
+            // Mendapatkan elemen <span> yang menutup modal  
+            var closeModal = document.getElementsByClassName("close")[0];  
+
+            // Ketika pengguna mengklik <span> (x), tutup modal  
+            closeModal.onclick = function() {  
+                modal.style.display = "none";  
+            }  
+
+            // Ketika pengguna mengklik di luar modal, tutup modal  
+            window.onclick = function(event) {  
+                if (event.target == modal) {  
+                    modal.style.display = "none";  
+                }  
+            }  
+
+            // Show notification
+            function showNotification(elementId, message, isSuccess) {
+                const notification = document.getElementById(elementId);
+                notification.textContent = message;
+                notification.className = `notification ${isSuccess ? 'success' : 'error'}`;
+                notification.style.display = 'block';
+                
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 3000);
+            }
+            
+            // Fungsi untuk mengirim data dengan timeout dan fallback
+            function sendDataWithTimeout(ref, data, onSuccess, onError, buttonId, loaderId) {
+                // Check if online
+                if (!navigator.onLine) {
+                    onError(new Error('Tidak ada koneksi internet'));
+                    return;
+                }
+                
+                // Check if connected to Firebase
+                if (!isConnectedToFirebase) {
+                    onError(new Error('Tidak terhubung ke server. Silakan tunggu atau muat ulang halaman.'));
+                    return;
+                }
+
+                const btn = document.getElementById(buttonId);
+                const loader = document.getElementById(loaderId);
+                
+                // Disable button and show loading
+                btn.disabled = true;
+                if (loaderId === 'sendMessageBtn') {
+                    // Create a loader inside the button if it's the message button
+                    btn.innerHTML = 'Mengirim... <span class="loader"></span>';
+                } else {
+                    loader.style.display = 'inline-block';
+                }
+                
+                // Create a timeout promise
+                const timeoutPromise = new Promise((_, reject) => {
+                    setTimeout(() => reject(new Error('Timeout! Server tidak merespon dalam 10 detik')), 10000);
+                });
+                
+                // Determine the path based on ref
+                const path = ref.toString().split('firebase.com/')[1] || '';
+                
+                // First try using Firebase SDK method
+                Promise.race([
+                    ref.push(data),
+                    timeoutPromise
+                ])
+                .then(() => {
+                    if (loaderId === 'sendMessageBtn') {
+                        btn.innerHTML = 'Kirim Pesan';
+                    } else {
+                        loader.style.display = 'none';
+                    }
+                    btn.disabled = false;
+                    onSuccess();
+                })
+                .catch(error => {
+                    console.error("Firebase error:", error);
+                    
+                    // If Firebase SDK fails, try REST API as fallback
+                    console.log("Mencoba metode fallback REST API...");
+                    sendDataWithRESTAPI(path, data)
+                        .then(() => {
+                            if (loaderId === 'sendMessageBtn') {
+                                btn.innerHTML = 'Kirim Pesan';
+                            } else {
+                                loader.style.display = 'none';
+                            }
+                            btn.disabled = false;
+                            onSuccess();
+                        })
+                        .catch(fallbackError => {
+                            console.error("Fallback REST API error:", fallbackError);
+                            if (loaderId === 'sendMessageBtn') {
+                                btn.innerHTML = 'Kirim Pesan';
+                            } else {
+                                loader.style.display = 'none';
+                            }
+                            btn.disabled = false;
+                            onError(error);
+                        });
+                });
+            }
+
+            // Menyimpan pesanan ke Firebase  
+            var orderForm = document.querySelector('.order-form');
+            
+            orderForm.addEventListener('submit', function(e) {  
+                e.preventDefault(); // Mencegah refresh
+                
+                const newOrder = {  
+                    product: productInput.value,  
+                    name: orderForm.orderName.value,  
+                    email: orderForm.orderEmail.value,  
+                    phone: orderForm.orderPhone.value,  
+                    address: orderForm.orderAddress.value,  
+                    date: new Date().toLocaleString(),
+                    timestamp: firebase.database.ServerValue.TIMESTAMP
+                };
+
+                // Using the new function with timeout
+                const ordersRef = database.ref('orders');
+                sendDataWithTimeout(
+                    ordersRef, 
+                    newOrder,
+                    () => { // Success handler
+                        showNotification('orderNotification', 'Pesanan berhasil dikirim!', true);
+                        orderForm.reset();
+                        setTimeout(() => {
+                            modal.style.display = "none";
+                        }, 2000);
+                    },
+                    (error) => { // Error handler
+                        showNotification('orderNotification', 'Error: ' + error.message, false);
+                    },
+                    'submitOrderBtn',
+                    'orderLoader'
+                );
+            });  
+
+            // Menyimpan pesan ke Firebase dengan timeout 
+            var contactForm = document.querySelector('.contact-form');
+            
+            contactForm.addEventListener('submit', function(e) {  
+                e.preventDefault(); // Mencegah refresh
+                
+                const newMessage = {  
+                    name: contactForm.querySelector('#name').value,  
+                    email: contactForm.querySelector('#email').value,  
+                    phone: contactForm.querySelector('#phone').value,  
+                    message: contactForm.querySelector('#message').value,  
+                    date: new Date().toLocaleString(),
+                    timestamp: firebase.database.ServerValue.TIMESTAMP
+                };
+
+                // Using the new function with timeout
+                const messagesRef = database.ref('messages');
+                sendDataWithTimeout(
+                    messagesRef, 
+                    newMessage,
+                    () => { // Success handler
+                        showNotification('messageNotification', 'Pesan berhasil dikirim!', true);
+                        contactForm.reset();
+                    },
+                    (error) => { // Error handler
+                        showNotification('messageNotification', 'Error: ' + error.message, false);
+                    },
+                    'sendMessageBtn',
+                    'sendMessageBtn' // We'll create a loader inside the button
+                );
+            });
+
+            // Admin Panel Functionality
+            // Set default admin credentials if not set
+            if (!localStorage.getItem('adminCredentials')) {
+                localStorage.setItem('adminCredentials', JSON.stringify({
+                    username: 'admin',
+                    password: 'admin123'
+                }));
+            }
+
+            const adminIconBtn = document.getElementById('adminIconBtn');
+            const adminPanel = document.getElementById('adminPanel');
+            const adminCloseBtn = document.getElementById('adminCloseBtn');
+            const loginForm = document.getElementById('loginForm');
+            const adminContent = document.getElementById('adminContent');
+            const loginBtn = document.getElementById('loginBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+
+            // Open admin panel when clicking admin icon
+            adminIconBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                adminPanel.style.display = 'block';
+                
+                // Check if logged in
+                if (localStorage.getItem('adminLoggedIn') === 'true') {
+                    loginForm.style.display = 'none';
+                    adminContent.style.display = 'block';
+                    loadAdminData(); // Load data when opening panel
+                } else {
+                    loginForm.style.display = 'block';
+                    adminContent.style.display = 'none';
+                }
+            });
+
+            // Close admin panel
+            adminCloseBtn.addEventListener('click', function() {
+                adminPanel.style.display = 'none';
+            });
+
+            // Login functionality
+            loginBtn.addEventListener('click', function() {
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                const credentials = JSON.parse(localStorage.getItem('adminCredentials'));
+
+                if (username === credentials.username && password === credentials.password) {
+                    localStorage.setItem('adminLoggedIn', 'true');
+                    loginForm.style.display = 'none';
+                    adminContent.style.display = 'block';
+                    loadAdminData();
+                } else {
+                    showNotification('loginNotification', 'Username atau password salah!', false);
+                }
+            });
+
+            // Logout functionality
+            logoutBtn.addEventListener('click', function() {
+                localStorage.removeItem('adminLoggedIn');
+                loginForm.style.display = 'block';
+                adminContent.style.display = 'none';
+            });
+
+            // Tab functionality
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // Load admin data with timeout
+            function loadAdminData() {
+                if (!navigator.onLine) {
+                    document.getElementById('ordersList').innerHTML = '<div class="no-data">Tidak dapat memuat data - tidak ada koneksi internet</div>';
+                    document.getElementById('messagesList').innerHTML = '<div class="no-data">Tidak dapat memuat data - tidak ada koneksi internet</div>';
+                    return;
+                }
+                
+                if (!isConnectedToFirebase) {
+                    document.getElementById('ordersList').innerHTML = '<div class="no-data">Tidak dapat memuat data - tidak terhubung ke server</div>';
+                    document.getElementById('messagesList').innerHTML = '<div class="no-data">Tidak dapat memuat data - tidak terhubung ke server</div>';
+                    return;
+                }
+                
+                loadOrders();
+                loadMessages();
+            }
+            
+            // Load data using REST API as fallback
+            function loadDataWithRESTAPI(path, onSuccess, onError) {
+                fetch(`${firebaseConfig.databaseURL}/${path}.json?orderBy="timestamp"`)
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json();
+                        }
+                        throw new Error('REST API request failed');
+                    })
+                    .then(data => {
+                        onSuccess(data);
+                    })
+                    .catch(error => {
+                        console.error("REST API error:", error);
+                        onError(error);
+                    });
+            }
+
+            // Load orders for admin panel with timeout
+            function loadOrders() {
+                const ordersList = document.getElementById('ordersList');
+                ordersList.innerHTML = '<div style="text-align: center;"><p>Memuat data pesanan...</p><div class="loader" style="display: inline-block;"></div></div>';
+                
+                const ordersRef = database.ref('orders');
+                
+                // Create a timeout promise
+                const timeoutPromise = new Promise((_, reject) => {
+                    setTimeout(() => reject(new Error('Timeout! Server tidak merespon dalam 10 detik')), 10000);
+                });
+                
+                // Race between Firebase operation and timeout
+                Promise.race([
+                    ordersRef.orderByChild('timestamp').once('value'),
+                    timeoutPromise
+                ])
+                .then((snapshot) => {
+                    ordersList.innerHTML = '';
+                    
+                    if (!snapshot.exists()) {
+                        ordersList.innerHTML = '<div class="no-data">Belum ada pesanan</div>';
+                        return;
+                    }
+                    
+                    // Convert to array and reverse (newest first)
+                    const orders = [];
+                    snapshot.forEach((childSnapshot) => {
+                        orders.push({
+                            id: childSnapshot.key,
+                            ...childSnapshot.val()
+                        });
+                    });
+                    
+                    orders.reverse();
+                    
+                    orders.forEach(order => {
+                        const orderItem = document.createElement('div');
+                        orderItem.className = 'data-item';
+                        orderItem.innerHTML = `
+                            <p><strong>Produk:</strong> ${order.product}</p>
+                            <p><strong>Nama:</strong> ${order.name}</p>
+                            <p><strong>Email:</strong> ${order.email}</p>
+                            <p><strong>No. Handphone:</strong> ${order.phone}</p>
+                            <p><strong>Alamat:</strong> ${order.address}</p>
+                            <p class="date">Diterima: ${order.date}</p>
+                        `;
+                        ordersList.appendChild(orderItem);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error loading orders:", error);
+                    ordersList.innerHTML = `<div class="no-data">Mencoba metode alternatif...</div>`;
+                    
+                    // Try fallback method with REST API
+                    loadDataWithRESTAPI(
+                        'orders',
+                        (data) => {
+                            ordersList.innerHTML = '';
+                            
+                            if (!data) {
+                                ordersList.innerHTML = '<div class="no-data">Belum ada pesanan</div>';
+                                return;
+                            }
+                            
+                            // Convert to array and sort by timestamp (newest first)
+                            const orders = Object.keys(data).map(key => ({
+                                id: key,
+                                ...data[key]
+                            })).sort((a, b) => b.timestamp - a.timestamp);
+                            
+                            if (orders.length === 0) {
+                                ordersList.innerHTML = '<div class="no-data">Belum ada pesanan</div>';
+                                return;
+                            }
+                            
+                            orders.forEach(order => {
+                                const orderItem = document.createElement('div');
+                                orderItem.className = 'data-item';
+                                orderItem.innerHTML = `
+                                    <p><strong>Produk:</strong> ${order.product}</p>
+                                    <p><strong>Nama:</strong> ${order.name}</p>
+                                    <p><strong>Email:</strong> ${order.email}</p>
+                                    <p><strong>No. Handphone:</strong> ${order.phone}</p>
+                                    <p><strong>Alamat:</strong> ${order.address}</p>
+                                    <p class="date">Diterima: ${order.date}</p>
+                                `;
+                                ordersList.appendChild(orderItem);
+                            });
+                        },
+                        (error) => {
+                            ordersList.innerHTML = `<div class="no-data">Error: ${error.message}</div>`;
+                        }
+                    );
+                });
+            }
+
+            // Load messages for admin panel with timeout
+            function loadMessages() {
+                const messagesList = document.getElementById('messagesList');
+                messagesList.innerHTML = '<div style="text-align: center;"><p>Memuat data pesan...</p><div class="loader" style="display: inline-block;"></div></div>';
+                
+                const messagesRef = database.ref('messages');
+                
+                // Create a timeout promise
+                const timeoutPromise = new Promise((_, reject) => {
+                    setTimeout(() => reject(new Error('Timeout! Server tidak merespon dalam 10 detik')), 10000);
+                });
+                
+                // Race between Firebase operation and timeout
+                Promise.race([
+                    messagesRef.orderByChild('timestamp').once('value'),
+                    timeoutPromise
+                ])
+                .then((snapshot) => {
+                    messagesList.innerHTML = '';
+                    
+                    if (!snapshot.exists()) {
+                        messagesList.innerHTML = '<div class="no-data">Belum ada pesan</div>';
+                        return;
+                    }
+                    
+                    // Convert to array and reverse (newest first)
+                    const messages = [];
+                    snapshot.forEach((childSnapshot) => {
+                        messages.push({
+                            id: childSnapshot.key,
+                            ...childSnapshot.val()
+                        });
+                    });
+                    
+                    messages.reverse();
+                    
+                    messages.forEach(message => {
+                        const messageItem = document.createElement('div');
+                        messageItem.className = 'data-item';
+                        messageItem.innerHTML = `
+                            <p><strong>Nama:</strong> ${message.name}</p>
+                            <p><strong>Email:</strong> ${message.email}</p>
+                            <p><strong>No. Handphone:</strong> ${message.phone || 'Tidak diisi'}</p>
+                            <p><strong>Pesan:</strong> ${message.message}</p>
+                            <p class="date">Diterima: ${message.date}</p>
+                        `;
+                        messagesList.appendChild(messageItem);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error loading messages:", error);
+                    messagesList.innerHTML = `<div class="no-data">Mencoba metode alternatif...</div>`;
+                    
+                    // Try fallback method with REST API
+                    loadDataWithRESTAPI(
+                        'messages',
+                        (data) => {
+                            messagesList.innerHTML = '';
+                            
+                            if (!data) {
+                                messagesList.innerHTML = '<div class="no-data">Belum ada pesan</div>';
+                                return;
+                            }
+                            
+                            // Convert to array and sort by timestamp (newest first)
+                            const messages = Object.keys(data).map(key => ({
+                                id: key,
+                                ...data[key]
+                            })).sort((a, b) => b.timestamp - a.timestamp);
+                            
+                            if (messages.length === 0) {
+                                messagesList.innerHTML = '<div class="no-data">Belum ada pesan</div>';
+                                return;
+                            }
+                            
+                            messages.forEach(message => {
+                                const messageItem = document.createElement('div');
+                                messageItem.className = 'data-item';
+                                messageItem.innerHTML = `
+                                    <p><strong>Nama:</strong> ${message.name}</p>
+                                    <p><strong>Email:</strong> ${message.email}</p>
+                                    <p><strong>No. Handphone:</strong> ${message.phone || 'Tidak diisi'}</p>
+                                    <p><strong>Pesan:</strong> ${message.message}</p>
+                                    <p class="date">Diterima: ${message.date}</p>
+                                `;
+                                messagesList.appendChild(messageItem);
+                            });
+                        },
+                        (error) => {
+                            messagesList.innerHTML = `<div class="no-data">Error: ${error.message}</div>`;
+                        }
+                    );
+                });
+            }
+            
+            // Log errors to help debugging
+            window.addEventListener('error', function(e) {
+                console.error('Global error caught:', e.error);
+            });
+        });  
+    </script>  
+</body>  
+</html>
